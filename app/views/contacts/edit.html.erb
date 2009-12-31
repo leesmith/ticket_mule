@@ -1,0 +1,9 @@
+<h2>Editing <%= @contact.full_name -%></h2>
+
+<% form_for @contact do |f| %>
+  <%= f.error_messages %>
+  <dl>
+    <%= render :partial => 'form' -%>
+    <dd><%= f.submit "Update", :class => "button" -%>&nbsp;&nbsp;<%= link_to 'Cancel', @contact %></dd>
+  </dl>
+<% end -%>

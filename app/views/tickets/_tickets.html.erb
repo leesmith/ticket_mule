@@ -1,0 +1,37 @@
+<%= render :partial => 'tickets_per_page', :locals => { :per_page => @tickets_per_page } -%>
+
+<table class="listing" cellspacing="0">
+  <thead>
+  <tr class="header">
+    <th>Ticket #</th>
+    <th>Title</th>
+    <th>Group</th>
+    <th>Status</th>
+    <th>Owner</th>
+    <th>Contact</th>
+    <th>Last Activity</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tickets.each do |ticket| -%>
+  <tr class="<%= cycle("list-line-odd", "list-line-even") -%>">
+    <% if ticket.priority.standard? -%>
+      <td><%= link_to ticket.id, ticket, { :title => "Ticket ##{ticket.id}: #{ticket.priority.name} priority", :class => "#{ticket.priority.name.downcase}" } -%></td>
+    <% else -%>
+      <td><%= link_to ticket.id, ticket, { :title => "Ticket ##{ticket.id}: #{ticket.priority.name} priority", :class => "custom" } -%></td>
+    <% end -%>
+    <td><%=h truncate(ticket.title, :length => 40) -%></td>
+    <td><%= ticket.group.name -%></td>
+    <td><%= ticket.status.name -%></td>
+    <td><%= link_to ticket.owner.username, user_path(ticket.owner.id) unless ticket.owner.nil? %></td>
+    <td><%= link_to ticket.contact.full_name, contact_path(ticket.contact.id) -%></td>
+    <td><%= listing_date ticket.updated_at -%></td>
+  </tr>
+  <% end -%>
+  </tbody>
+</table>
+
+<%= will_paginate @tickets, :previous_label => '&#8249;', :next_label => '&#8250;' %>
+<% if @total_tickets -%>
+  <div style="margin: 6px 0; font-style: italic; color: #333; text-align:center;"><%=@total_tickets %> <%= @total_tickets == 1 ? "ticket" : "tickets" %> found.</div>
+<% end -%>

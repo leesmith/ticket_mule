@@ -1,0 +1,9 @@
+<h2>New contact</h2>
+
+<% form_for(@contact) do |f| %>
+  <%= f.error_messages %>
+  <dl>
+    <%= render :partial => 'form' -%>
+    <dd><%= f.submit "Create", :class => "button" -%>&nbsp;&nbsp;<%= link_to 'Cancel', contacts_path -%></dd>
+  </dl>
+<% end -%>

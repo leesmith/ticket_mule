@@ -1,0 +1,23 @@
+<table class="listing" cellspacing="0">
+  <tr class="header">
+    <th>Username</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Last Login</th>
+    <th>Disabled at</th>
+  </tr>
+  <% @users.each do |user| -%>
+  <tr class="<%= cycle("list-line-odd", "list-line-even") -%>">
+    <td><%= link_to h(user.username), user -%></td>
+    <td><%=h user.full_name -%></td>
+    <td><%=h user.email -%></td>
+    <td><%= nice_date user.last_login_at unless user.last_login_at.nil? -%></td>
+    <td><%= nice_date user.disabled_at unless user.enabled? -%></td>
+  </tr>
+  <% end -%>
+</table>
+
+<%= will_paginate @users, :previous_label => '&#8249;', :next_label => '&#8250;' %>
+<% if @total_users -%>
+  <div style="margin: 6px 0; font-style: italic; color: #333; text-align:center;"><%=@total_users %> <%= @total_users == 1 ? "user" : "users" %> found.</div>
+<% end -%>

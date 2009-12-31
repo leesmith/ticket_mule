@@ -1,0 +1,34 @@
+<div class="right" id="controls">
+  <%= link_to 'Edit', edit_contact_path, :class => "edit-contact" -%> |
+  <% if @current_user.admin? -%>
+    <% unless @contact.enabled? -%>
+      <%= link_to 'Enable', toggle_contact_path, :confirm => "Really enable contact #{@contact.full_name}?", :method => :post, :class => 'enable' -%> |
+    <% else -%>
+      <%= link_to 'Disable', toggle_contact_path, :confirm => "Really disable contact #{@contact.full_name}?", :method => :post, :class => 'disable' -%> |
+    <% end -%>
+  <% end -%>
+  <%= link_to 'Back', contacts_path, :class => "back" -%>
+</div>
+
+<h2<%= @contact.enabled? ? '' : ' class="disabled"' -%>><%=h @contact.full_name -%></h2>
+
+<table class="profile <%= @contact.enabled? ? '' : 'disabled' -%>">
+  <tr>
+    <td class="field">First name:</td><td class="value"><%=h @contact.first_name -%></td>
+    <td class="field">Last name:</td><td class="value"><%=h @contact.last_name -%></td>
+  </tr>
+  <tr>
+    <td class="field">Email:</td><td class="value"><%=h @contact.email -%></td>
+    <td class="field">Affiliation:</td><td class="value"><%=h @contact.affiliation -%></td>
+  </tr>
+  <tr>
+    <td class="field">Mobile phone:</td><td class="value"><%= h @contact.mobile_phone -%></td>
+    <td class="field">Office phone:</td><td class="value"><%=h @contact.office_phone -%></td>
+  </tr>
+  <tr>
+    <td class="field">Updated at:</td>
+    <td class="value" colspan="3"><%= nice_date @contact.updated_at -%></td>
+  </tr>
+  <tr><td class="field-row" colspan="4">Notes:</td></tr>
+  <tr><td class="value-row" colspan="4"><%= simple_format(@contact.notes) -%></td></tr>
+</table>

@@ -1,0 +1,70 @@
+= TicketMule
+
+No frills, general use support ticket tracking.  Easily document and communicate client relations within a support team.
+
+== Features
+
+* Clean interface that is compatible with modern web browsers
+* Add comments and file attachments to tickets
+* Subscribe to ticket updates via email (alerts)
+* Automatically sends an email to the user assigned as owner of a ticket
+* View recent ticket activity and timeline statistics from the dashboard
+* Export ticket in PDF format
+* No complicated permission system...only admins can perform negative actions
+* In-line admin controls to delete comments, attachments, and tickets
+
+== Required Gems
+
+* <em>will_paginate</em>
+* <em>authlogic</em>
+* <em>searchlogic</em>
+* <em>paperclip</em>
+* <em>prawn</em>
+
+To load fake data to test drive TicketMule, you will also need <em>populator</em> and <em>faker</em> gems.
+
+== Install
+
+Basic installation creates a fresh database with a single admin user.  See +db/seeds.rb+ for admin user information.
+
+You can choose to test drive TicketMule with fake data as described below.
+
+Create database configuration file and modify as needed:
+
+  $ cp config/database.example.yml config/database.yml
+
+Configure TicketMule settings in the <em>production</em> block of +config/config.yml+.  See comments for details.
+
+Modify +config/environment.rb+ settings such as default timezone and rails gem version.
+
+Modify +db/seeds.rb+ to create the seed data for your installation of TicketMule.  This is where you create your organization's groups, statuses, and priorities.
+
+Install gems:
+
+  $ rake gems:install
+
+Choose between basic installation or installation with test data:
+
+<b>Basic installation</b> create database and schema, and initialize with seed data:
+
+  $ rake db:setup
+
+<b>Test drive</b> create database and schema, initialize with seed data, and load 150 contacts, 500 tickets, and 4 non-admin users (see +lib/tasks/faker.rake+ for details):
+
+  $ rake faker
+
+== Notes
+
+By default, users can create their own accounts by navigating to /users/new and creating their account.  If this is not desired and you only want admins to create user accounts, a small change to +config/routes.rb+ is required.  The users resource will need the exception added for the <em>new</em> action.  See the comments for the users resource map for details.
+
+When you add an alert to a ticket, you will only receive an email alert when the ticket's attributes change.  You will not receive an email alert when a comment or attachment is added.
+
+== License
+
+Copyright (c) 2009 by J. Lee Smith. All rights reserved.
+
+TicketMule is released under the MIT License.  See the LICENSE file for details.
+
+== Icons
+
+Fugue icons copyright (c) 2009 by Yusuke Kamiyamane. {Pinvoke.com}[http://www.pinvoke.com]

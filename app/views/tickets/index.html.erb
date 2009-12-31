@@ -1,0 +1,25 @@
+<% content_for :head do %>
+<%= javascript_include_tag 'pagination' %>
+<% end %>
+
+<% content_for :ticket_filter do %>
+<%= render 'ticket_filter' -%>
+<% end %>
+
+<% content_for :button_list do %>
+<div class="right-container">
+  <%= link_to 'New ticket', new_ticket_path, :method => :get, :class => "big-button" %>
+  <%= link_to 'New contact', new_contact_path, :method => :get, :class => "big-button" %>
+</div>
+<% end %>
+
+<h2 class="left">Tickets</h2>
+
+<% if @tickets.length < 1 -%>
+  <br class="clear"/>
+  <p>No tickets found.</p>
+<% else -%>
+<div id="tickets">
+  <%= render 'tickets' -%>
+</div>
+<% end -%>

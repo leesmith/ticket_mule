@@ -1,0 +1,12 @@
+<div id="wide-content">
+  <h1>Sign Up</h1>
+  <div class="box">
+    <% form_for @user do |f| %>
+      <%= f.error_messages %>
+      <dl>
+        <%= render :partial => "form", :object => f %>
+        <dd><%= f.submit "Sign up", :class => "button" %>&nbsp;&nbsp;<%= link_to "Cancel", login_path %></dd>
+      </dl>
+    <% end %>
+  </div>
+</div>

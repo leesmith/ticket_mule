@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>  
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="description" content="TicketMule support ticket tracking" />
+  <title><%= controller.controller_name.capitalize %> &#8250; TicketMule</title>
+  <%= stylesheet_link_tag 'screen', :media => "screen, projection" %>
+  <%= stylesheet_link_tag 'print', :media => "print" %>
+  <%= javascript_include_tag 'jquery-1.3.2.min', 'application', :cache => true -%>
+  <%= yield(:head) -%>
+  <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+</head>
+
+<body>
+<div id="content">
+
+<div id="header">
+  <div id="inner-header">
+    <h1>TicketMule</h1>
+    <p id="status">Signed in as <%= link_to @current_user.username, user_path(@current_user.id) -%>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to "Logout", logout_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></p>
+    <div id="nav">
+      <!--
+      <ul id="nav-left">
+        <li><a href="/dashboard" tabindex="1" title="Dashboard"><span>Dashboard</span></a></li>
+        <li><a href="/tickets" tabindex="2" title="Tickets"><span>Tickets</span></a></li>
+      </ul>
+      -->
+      <ul id="nav-right">
+        <%= tab_for :dashboard, dashboard_index_path, "Dashboard" %>
+        <%= tab_for :tickets, tickets_path, "Tickets" %>
+        <%= tab_for :contacts, contacts_path, "Contacts" %>
+        <%= tab_for :users, users_path, "Users" %>
+        <% if @current_user.admin? -%>
+          <%= tab_for :admin, '/admin', "Admin" %>
+        <% end -%>
+      </ul>
+    </div><!-- end nav -->
+  </div><!-- end inner-header -->
+</div><!-- end header -->
+
+<div id="shadow"></div>
+
+<div id="main">
+  <div id="left-column">
+    <div class="box">
+      <%= show_flash %>
+      <%= yield %>
+    </div>
+  </div><!-- end left-column -->
+  <div id="right-column">
+    <%= yield :button_list -%>
+    <h3>Jump to Ticket</h3>
+    <div class="right-container">
+      <form id="jumpbox" action="">
+        <p>
+          <label for="jump_id"><em>Enter a ticket number:</em></label><br/>
+          <input type="text" id="jump_id" size="8" class="textfield"/>
+          <button class="button">Go</button>
+        </p>
+      </form>
+    </div>
+    <%= yield :ticket_filter -%>
+  </div><!-- end right-column -->
+</div><!-- end main -->
+
+<br/><br/></div><!-- end content -->
+
+<div id="footer">
+  <p><a href="http://validator.w3.org/check/referer" title="Valid XHTML">XHTML</a>&nbsp;|&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS">CSS</a>&nbsp;|&nbsp;Powered by <strong><a href="/">TicketMule</a></strong></p>
+</div>
+
+</body>
+</html>

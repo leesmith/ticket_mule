@@ -1,0 +1,94 @@
+<h3>Filter Tickets</h3>
+
+<ul id="filter-links">
+  <%= ticket_filter_links 'open', @current_user.id -%>
+  <%= ticket_filter_links 'closed', @current_user.id -%>
+  <%= ticket_filter_links 'open' -%>
+  <%= ticket_filter_links 'closed' -%>
+  <li><%= link_to_function "Custom Filter...", "$('#ticket-filter').toggle();" -%></li>
+</ul>
+
+<div class="right-container">
+<% form_for @search, :html => { :id => 'ticket-filter' } do |f| %>
+  <p>
+  <%= f.label :group_id_equals, "Group" %>
+  <%= f.collection_select :group_id_equals, Group.all(:order => "name"), :id, :name, { :include_blank => true}, { :class => "selectbox" } %>
+  </p>
+
+  <p>
+  <%= f.label :contact_id_equals, "Contact" %>
+  <%= f.collection_select :contact_id_equals, Contact.all(:order => "last_name"), :id, :full_name, { :include_blank => true}, { :class => "selectbox" } %>
+  </p>
+
+  <p>
+  <%= f.label :status_id_equals, "Status" %>
+  <%= f.collection_select :status_id_equals, Status.all, :id, :name, { :include_blank => true}, { :class => "selectbox" } %>
+  </p>
+
+  <p>
+  <%= f.label :priority_id_equals, "Priority" %>
+  <%= f.collection_select :priority_id_equals, Priority.all, :id, :name, { :include_blank => true}, { :class => "selectbox" } %>
+  </p>
+
+  <p>
+  <%= f.label :owned_by_equals, "Owner" %>
+  <%= f.collection_select :owned_by_equals, User.all(:order => "username"), :id, :username, { :include_blank => true }, { :class => "selectbox" } %>
+  </p>
+
+  <p>
+  <label for="filter-start">From</label>
+  <%= f.text_field :created_at_gte, :size => 11, :id => 'filter-start', :class => 'textfield' -%>
+  </p>
+
+  <p>
+  <label for="filter-end">To</label>
+  <%= f.text_field :created_at_lt, :size => 11, :id => 'filter-end', :class => 'textfield' -%>
+  </p>
+
+  <p><%= f.submit "Submit", :class => "button" %></p>
+<% end %>
+</div>
+
+<% content_for :head do -%>
+  <%= javascript_include_tag 'datepicker' -%>
+  <script type="text/javascript">
+    $(function() {
+    $('#filter-start').DatePicker({
+      format: 'Y-m-d',
+      date: $('#filter-start').val(),
+      current: $('#filter-start').val(),
+      starts: 0,
+      position: 'top',
+      onBeforeShow: function(){
+        if ($('#filter-start').val() == '') {
+          $('#filter-start').DatePickerSetDate(getToday(), true);
+        } else {
+          $('#filter-start').DatePickerSetDate($('#filter-start').val(), true);
+        }
+      },
+      onChange: function(formatted, dates){
+          $('#filter-start').val(formatted);
+          $('#filter-start').DatePickerHide();
+      }
+    });
+    $('#filter-end').DatePicker({
+      format: 'Y-m-d',
+      date: $('#filter-end').val(),
+      current: $('#filter-end').val(),
+      starts: 0,
+      position: 'top',
+      onBeforeShow: function(){
+        if ($('#filter-end').val() == '') {
+          $('#filter-end').DatePickerSetDate(getToday(), true);
+        } else {
+          $('#filter-end').DatePickerSetDate($('#filter-end').val(), true);
+        }
+      },
+      onChange: function(formatted, dates){
+          $('#filter-end').val(formatted);
+          $('#filter-end').DatePickerHide();
+      }
+    });
+    });
+  </script>
+<% end -%>

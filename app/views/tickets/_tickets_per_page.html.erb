@@ -1,0 +1,4 @@
+<div id="tickets_per_page" class="right">
+  <span>Tickets per page: <%= link_to_unless per_page == '10', '10', { :action => "set_tickets_per_page", :per_page => 10 }, :method => :post -%>, <%= link_to_unless per_page == '20', '20', { :action => "set_tickets_per_page", :per_page => 20 }, :method => :post -%>, <%= link_to_unless per_page == '30', '30', { :action => "set_tickets_per_page", :per_page => 30 }, :method => :post -%></span>
+</div>
+<br class="clear"/>

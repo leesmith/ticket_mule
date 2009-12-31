@@ -1,0 +1,17 @@
+<div id="wide-content">
+  <h1>Change My Password</h1>
+  <div class="box">
+    <% form_for @user, :url => password_reset_path, :method => :put do |f| %>
+      <%= f.error_messages %>
+      <dl>
+        <dt><label for="password">Password</label></dt>
+        <dd><%= f.password_field :password, :class => "textfield" %></dd>
+
+        <dt><label for="password_confirmation">Confirm Password</label></dt>
+        <dd><%= f.password_field :password_confirmation, :class => "textfield" %></dd>
+
+        <dd><%= f.submit "Update", :class => "button" %></dd>
+      </dl>
+    <% end %>
+  </div>
+</div>

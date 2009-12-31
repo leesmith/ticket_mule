@@ -1,0 +1,27 @@
+<dt><label for="user_username">Username</label></dt>
+<dd><%= form.text_field :username, :class => "textfield" %></dd>
+
+<dt><label for="user_first_name">First name</label></dt>
+<dd><%= form.text_field :first_name, :class => "textfield" -%></dd>
+
+<dt><label for="user_last_name">Last name</label></dt>
+<dd><%= form.text_field :last_name, :class => "textfield" -%></dd>
+
+<dt><label for="user_time_zone">Time zone</label></dt>
+<dd><%= form.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, { :default => "Central Time (US & Canada)" }, { :class => "selectbox" } %></dd>
+
+<dt><label for="user_email">Email</label></dt>
+<dd><%= form.text_field :email, :class => "textfield" -%></dd>
+
+<dt><label for="user_email_confirmation">Confirm Email</label></dt>
+<dd><%= form.text_field :email_confirmation, :class => "textfield" -%></dd>
+
+<% if form.object.new_record? %>
+  <dt><label for="user_password">Password</label></dt>
+<% else %>
+  <dt><label for="user_password">Change Password</label></dt>
+<% end %>
+<dd><%= form.password_field :password, :class => "textfield" %></dd>
+
+<dt><label for="user_password_confirmation">Confirm Password</label></dt>
+<dd><%= form.password_field :password_confirmation, :class => "textfield" %></dd>

@@ -1,0 +1,18 @@
+<% content_for :head do -%>
+<%= javascript_include_tag 'pagination' %>
+<% end -%>
+
+<% content_for :button_list do -%>
+<div class="right-container">
+  <%= link_to 'New ticket', new_ticket_path, :method => :get, :class => "big-button" %>
+  <%= link_to 'New contact', new_contact_path, :method => :get, :class => "big-button" %>
+</div>
+<% end -%>
+
+<h2>Users</h2>
+
+<%= render :partial => 'contacts/alphabet' -%>
+
+<div id="users">
+  <%= render 'users' -%>
+</div>

@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head><meta http-equiv="content-type" content="text/html;charset=UTF-8" /></head>
+<body>
+<h1>TicketMule Owner Alert</h1>
+
+<p>
+You are receiving this alert because you have been assigned to ticket #<%= @ticket.id -%>.
+</p>
+
+<p>
+View the ticket at the link below:<br/>
+<%= ticket_url @ticket -%>
+</p>
+
+</body>
+</html>
