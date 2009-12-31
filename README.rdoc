@@ -35,7 +35,7 @@ Create database configuration file and modify as needed:
 
 Configure TicketMule settings in the <em>production</em> block of +config+/+config+.+yml+.  See comments for details.
 
-Modify +confi+g/+environment+.+rb+ settings such as default timezone and rails gem version.
+Modify +config+/+environment+.+rb+ settings such as default timezone and rails gem version.
 
 Modify +db+/+seeds+.+rb+ to create the seed data for your installation of TicketMule.  This is where you create your organization's groups, statuses, and priorities.
 
