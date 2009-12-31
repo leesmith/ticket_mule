@@ -25,7 +25,7 @@ To load fake data to test drive TicketMule, you will also need <em>populator</em
 
 == Install
 
-Basic installation creates a fresh database with a single admin user.  See +db/seeds.rb+ for admin user information.
+Basic installation creates a fresh database with a single admin user.  See +db+/+seeds+.+rb+ for admin user information.
 
 You can choose to test drive TicketMule with fake data as described below.
 
@@ -33,11 +33,11 @@ Create database configuration file and modify as needed:
 
   $ cp config/database.example.yml config/database.yml
 
-Configure TicketMule settings in the <em>production</em> block of +config/config.yml+.  See comments for details.
+Configure TicketMule settings in the <em>production</em> block of +config+/+config+.+yml+.  See comments for details.
 
-Modify +config/environment.rb+ settings such as default timezone and rails gem version.
+Modify +confi+g/+environment+.+rb+ settings such as default timezone and rails gem version.
 
-Modify +db/seeds.rb+ to create the seed data for your installation of TicketMule.  This is where you create your organization's groups, statuses, and priorities.
+Modify +db+/+seeds+.+rb+ to create the seed data for your installation of TicketMule.  This is where you create your organization's groups, statuses, and priorities.
 
 Install gems:
 
@@ -49,13 +49,13 @@ Choose between basic installation or installation with test data:
 
   $ rake db:setup
 
-<b>Test drive</b> create database and schema, initialize with seed data, and load 150 contacts, 500 tickets, and 4 non-admin users (see +lib/tasks/faker.rake+ for details):
+<b>Test drive</b> create database and schema, initialize with seed data, and load 150 contacts, 500 tickets, and 4 non-admin users (see +lib+/+tasks+/+faker+.+rake+ for details):
 
   $ rake faker
 
 == Notes
 
-By default, users can create their own accounts by navigating to /users/new and creating their account.  If this is not desired and you only want admins to create user accounts, a small change to +config/routes.rb+ is required.  The users resource will need the exception added for the <em>new</em> action.  See the comments for the users resource map for details.
+By default, users can create their own accounts by navigating to /users/new and creating their account.  If this is not desired and you only want admins to create user accounts, a small change to +config+/+routes+.+rb+ is required.  The users resource will need the exception added for the <em>new</em> action.  See the comments for the users resource map for details.
 
 When you add an alert to a ticket, you will only receive an email alert when the ticket's attributes change.  You will not receive an email alert when a comment or attachment is added.
 
