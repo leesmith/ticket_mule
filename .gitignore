@@ -4,6 +4,7 @@ tmp/**/*
 doc/api
 doc/app
 db/*.sqlite3
+config/database.yml
 *.swp
 *~
 .DS_Store
