@@ -1,0 +1,101 @@
+h1. Prawn::Format %FORMAT:VERSION%
+p. %PDF{}HTML{<em>A PDF version of this document may be downloaded <a href="http://jamisbuck.org/files/prawn-format-%FORMAT:VERSION%.pdf">here</a>.</em>}END%
+fp. Prawn::Format is an extension library for the Prawn PDF generation library for Ruby, allowing you to easily embed formatting <em>tags</em> in your documents. It features:
+ul.
+li. Out-of-the-box support for many common HTML tags
+li. Intra-document hyperlinks
+li. Easily add your own tag definitions
+li. Style classes
+/ul.
+p. Sound good? It's not all roses, though. Prawn::Format currently has the following known warts:
+ul.
+li. No support for block-level tags (paragraphs, divs, tables, etc.)
+li. No support for inline images
+/ul.
+p. If that doesn't deter you, read on! This manual currently has information about the following topics:
+ul.
+li. <a href="#basic-usage">Basic usage</a>
+li. <a href="#custom-tags">Custom tags</a>
+li. <a href="#style-classes">Style classes</a>
+li. <a href="#text-options"><code>text()</code> options</a>
+/ul.
+p. Prawn::Format was written by Jamis Buck (jamis@jamisbuck.org). Although there are not currently plans to extend the functionality much beyond the current incarnation, Jamis is definitely amenable to patches. What this means is that if you've got a pet feature you'd like to see in Prawn::Format, your best bet is to get to work and implement it!
+p. Bug reports are welcome, and may be submitted at:
+center. <b>http://prawn.lighthouseapp.com/projects/23476</b>
+p. And if you're inclined to help out with patches and the like, the code is hosted at (where else?) GitHub:
+center. <b>http://github.com/jamis/prawn-format</b>
+p. Thanks!
+hr.
+fp. <about>This manual generated for Prawn::Format version %FORMAT:VERSION% on %NOW%.</about>
+
+page.
+h2. <a name="basic-usage"></a>Basic usage
+fp. For most uses, adding text to your documents is exactly the same as it is in Prawn. The only difference is that you now add formatting tags (HTML-ish in nature) to the strings:
+highlight. include/basics.rb,ruby
+p. Prawn::Format does not support even the majority of HTML tags by default, but it does include support for the most common ones (and you can easily <a href="#custom-tags">add others</a> if you so desire). The supported tags are:
+ul.
+li. <code>a</code> &mdash; for hyperlinks (the <code>name</code> attribute is for hyperlink anchors, and the <code>href</code> attribute is for the actual links, just like in HTML)
+li. <code>b</code> &mdash; bold-faced text (but only if the currently selected font family supports bold text)
+li. <code>br</code> &mdash; line break
+li. <code>code</code> &mdash; switch to monospaced font (Courier, by default)
+li. <code>em</code> &mdash; italicized text (but only if the currently selected font family supports italicized text)
+li. <code>font</code> &mdash; change font attributes, include <code>face</code> (to change font family), <code>color</code>, and <code>size</code>
+li. <code>i</code> &mdash; italicized text (see <code>em</code>)
+li. <code>pre</code> &mdash; "verbatim" text (preserving whitespace and newlines). Unlike the HTML <code>pre</code> tag, this is not a block tag
+li. <code>span</code> &mdash; has no formatting, by default, but is recognized so that you can apply <a href="#style-classes">style classes</a> to the tag
+li. <code>strong</code> &mdash; bold-faced text (see <code>b</code>)
+li. <code>sub</code> &mdash; subscript text
+li. <code>sup</code> &mdash; superscript text
+li. <code>tt</code> &mdash; monospaced font (see <code>code</code>)
+li. <code>u</code> &mdash; underlined text
+/ul.
+p. You've likely noticed, already, the conspicuous absence of such common HTML tags as <code>p</code>, <code>div</code>, and <code>table</code>. The reason these are missing is simple: Prawn::Format has no real box model. Turns out, implementing such a beast is a really, really complicated thing to do right. However, you can work around this limitation without too much effort. In fact, <em>%PDF{this entire manual is formatted using Prawn::Format!}HTML{the <a href="http://jamisbuck.org/files/prawn-format-%FORMAT:VERSION%.pdf">PDF version of this manual</a> was entirely formatted using Prawn::Format!}END%</em> (The source code for the manual is included in the Prawn::Format distribution; see <code>manual/pdf.rb</code> and <code>manual/html.rb</code>. Also, <code>examples/document.rb</code> has a simpler demonstration of wholesale document formatting.)
+p. One particularly important thing to note about Prawn::Format tags: these are XML tags, and not HTML tags! The distinction is moot in most cases, but what this means in practical terms is that you <em>cannot</em> have unclosed tags in Prawn::Format. Even tags like <code>&lt;br&gt;</code> (which HTML allows to exist unclosed) must be closed. However, Prawn::Format allows you to use the abbreviated "open/close" XML syntax, e.g., <code>&lt;br/&gt;</code>.
+p. Lastly, Prawn::Format will ignore whitespace, just like HTML. (Unless you're operating in verbatim mode, usually introduced via the <code>&lt;pre&gt;</code> tag.) This means that newlines in your text will <em>not</em> translate to newlines in your output; you need to use the line-break tag <code>&lt;br/&gt;</code> to put line-breaks in your output.
+highlight. include/breaks.rb,ruby
+p. Got all that? Great! Time to move on to more tricky stuff. Next up: <a href="#custom-tags">custom tags</a>!
+
+page.
+h2. <a name="custom-tags"></a>Custom tags
+fp. Prawn::Format makes it very easy to define your own tags, either for clearer semantic markup or to add support for HTML tags that are not supported out-of-the-box.
+highlight. include/custom-tags.rb,ruby
+p. If you want to tweak the definition of an existing tag, you can reach right into the tags hash directly and add or modify existing styles:
+highlight. include/custom-tags2.rb,ruby
+p. The supported style options are:
+ul.
+li. <code>font_size</code>
+li. <code>font_family</code> (this may be any font name that Prawn's <code>Document#font</code> method will support)
+li. <code>font_style</code> &mdash; either <code>:normal</code> or <code>:italic</code>
+li. <code>font_weight</code> &mdash; either <code>:normal</code> or <code>:bold</code>
+li. <code>color</code> &mdash; may be any valid HTML color definition
+li. <code>vertical_align</code> &mdash; either <code>:super</code> or <code>:sub</code>, or a number to indicate the vertical offset from the baseline
+li. <code>text_decoration</code> &mdash; either <code>:none</code> or <code>:underline</code>
+li. <code>white_space</code> &mdash; either <code>:normal</code>, or <code>:pre</code> (for verbatim text, where whitespace is preserved)
+li. <code>width</code> &mdash; a number, used primarily to fake text indents at paragraph starts. Any tag with this attribute will have a width of that value (in addition to any contents of the tag)
+li. <code>kerning</code> &mdash; either true or false, to indicate whether kerning should be done on the text
+/ul.
+p. As you can see, for the most part these follow the same naming and value schemes as CSS3, though of course the similarity is only superficial. Prawn::Format doesn't support cascading styles, or specifying <a href="#style-classes">style classes</a> by anything other than a bare class name. (Maybe someday this will change. If it does, it'll be thanks to some enterprising programmer who submits a patch.)
+p. Still, even with the limitations, you can do quite a bit. For example, suppose you want indent the first line of a paragraph in your own document. Prawn::Format doesn't support this out of the box, but it's easy to do; just define an <code>&lt;indent&gt;</code> tag and give it a width the size of the text indent; then prepend that tag to every paragraph:
+highlight. include/indent.rb,ruby
+p. Oh, and did you catch that? Just like in CSS, you can specify most measurements in ems (e.g. <code>"2em"</code>), picas (<code>"3pc"</code>), inches (<code>"0.5in"</code>), or PDF "points" (<code>14</code>). There are 72 PDF points to an inch, and 6 picas to an inch. Also, like CSS, you can specify relative measurements, using percentages, in which case it is relative to some appropriate value. (Setting width to <code>"25%"</code> will set it to 25% of the width of the line. Setting the font size to <code>"80%"</code> will set it to 80% of the current font size.)
+
+page.
+h2. <a name="style-classes"></a>Style classes
+fp. Adding a new tag for every different style in your document can get to be pretty cumbersome. For that reason, you can also define <em>style classes</em>. This is simply a style definition (just like you would use for <a href="#custom-tags">defining a new tag</a>). To apply the style to a tag, do just like you would in HTML: specify the style class in the <code>class</code> attribute of the tag:
+highlight. include/style-classes.rb,ruby
+p. As mentioned before, Prawn::Format doesn't support cascading styles (i.e. you can't specify the format of an element by the chain of elements and styles in it's ancestor elements). And sadly, in practice, this does limit the ease with which you can apply complex styles. However, with judicious use of both style classes and <a href="#custom-tags">custom tags</a> you can do quite a bit.
+
+page.
+h2. <a name="text-options"></a><code>text()</code> options
+fp. Prawn::Format overloads the existing functionality of Prawn's <code>Document#text</code> method. In fact, unless formatting tags or XML entities are detected in the text, Prawn::Format's <code>text</code> method will simply fall back to the original. (Why? Because if you don't need the formatting, it's <em>much</em> faster to skip all the extra work that Prawn::Format does.)
+p. What this means is that Prawn::Format tries very hard to support all of the options that Prawn's <code>text</code> method accepts.
+p. Prawn::Format does <em>add</em> several new options to <code>text</code>, though. They are as follows:
+ul.
+li. <code>:plain</code> &mdash; a boolean indicating whether the text is "plain" or not. Plain text is processed by the original <code>text</code> method. By default, Prawn::Format analyzes the text to determine plainness, but this option lets you force it one way or the other.
+li. <code>:align => :justify</code> &mdash; the original <code>text</code> method understood several text alignment methods, but not full-justification. Prawn::Format will understand all the original methods, and also <code>:justify</code>, for full justification.
+li. <code>:tags</code> &mdash; a hash of tag definitions to use for this one call. Prawn::Format will always use the tags defined via <code>Document#tags</code>, but anything you specify via the <code>:tags</code> option takes precedent.
+li. <code>:styles</code> &mdash; a hash of style class definitions to use for this one call. Prawn::Format will always use the style classes defined via <code>Document#styles</code>, but anything you specify via the <code>:styles</code> option takes precedent.
+li. <code>:default_style</code> &mdash; a hash of style definitions that defines the default style to use for any otherwise-unstyled text. This defaults to the current font and color settings on the document, but you can set something else via this option.
+/ul.
+p. Here are a few examples using these options:
+highlight. include/options.rb,ruby

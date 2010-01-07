@@ -1,0 +1,20 @@
+# you can add and remove entries to support different databases in tests.
+
+sqlite3:
+  adapter: sqlite3
+  database: spec/test.sqlite3
+  timeout: 5000
+
+mysql:
+  adapter: mysql
+  database: populator_test
+  username: populator
+  password: 
+  host: localhost
+
+postgresql:
+  adapter: postgresql
+  database: populator_test
+  username: populator
+  password: populator
+  host: localhost
