@@ -6,7 +6,7 @@
     <% form_tag password_resets_path do %>
       <dl>
         <dt><label for="email">Email</label></dt>
-        <dd><%= text_field_tag :email, {}, { :size => 30, :class => "textfield" } -%></dd>
+        <dd><%= text_field_tag :email, {}, { :size => 20, :class => "textfield" } -%></dd>
 
         <dd><%= submit_tag "Submit", :class => "button" %>&nbsp;&nbsp;<%= link_to "Cancel", login_path %></dd>
       </dl>
