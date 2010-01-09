@@ -15,13 +15,13 @@ No frills, general use support ticket tracking.  Easily document and communicate
 
 == Included Gems
 
-* <em>will_paginate</em>
-* <em>authlogic</em>
-* <em>searchlogic</em>
-* <em>paperclip</em>
-* <em>prawn</em>
-* <em>populator</em>
-* <em>faker</em>
+* <em>will_paginate 2.3.11</em>
+* <em>authlogic 2.1.3</em>
+* <em>searchlogic 2.3.9</em>
+* <em>paperclip 2.3.1.1</em>
+* <em>prawn 0.6.3</em>
+* <em>populator 0.2.5</em>
+* <em>faker 0.3.1</em>
 
 <em>populator</em> and <em>faker</em> are only used to load fake data into TicketMule.
 
