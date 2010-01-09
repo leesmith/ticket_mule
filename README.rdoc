@@ -12,6 +12,7 @@ No frills, general use support ticket tracking.  Easily document and communicate
 * Export ticket in PDF format
 * No complicated permission system...only admins can perform negative actions
 * In-line admin controls to delete comments, attachments, and tickets
+* Ruby on Rails 2.3.5
 
 == Included Gems
 
