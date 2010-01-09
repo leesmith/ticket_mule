@@ -11,8 +11,7 @@ class Attachment < ActiveRecord::Base
 
   # Validations
   validates_attachment_presence :data
-  #validates_attachment_size :data, :less_than => 10.megabytes, :message => "attachment file size is limited to 10 megabytes."
-  validates_attachment_size :data, :less_than => APP_CONFIG['attachment_size_limit'].megabytes, :message => "attachment file size is limited to 10 megabytes."
+  validates_attachment_size :data, :less_than => APP_CONFIG['attachment_size_limit'].megabytes, :message => "attachment file size is limited to #{APP_CONFIG['attachment_size_limit']} megabytes."
   validates_presence_of :ticket_id, :user_id
 
   attr_protected :data_file_name, :data_content_type, :data_file_size
