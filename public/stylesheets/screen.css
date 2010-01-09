@@ -294,7 +294,6 @@ td.datepickerSpecial.datepickerSelected a { background: #a00; }
 .pagination a:hover, .pagination a:active { border: 1px solid #4d88cf; background: #4d88cf; color: #fff !important; text-decoration: none; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 .pagination span.current { border: 1px solid #4d88cf; font-weight: bold; background: #4d88cf; color: #fff; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 .pagination span.disabled { border: 1px solid #ccc; color: #ccc; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-.loading { display: none; }
 
 #footer { position: relative; margin-top: -32px; height: 32px; width: 100%; text-align: center; background: #e6e6dc url('../images/shadow-trans.png') repeat-x top left; }
 #footer p { padding: 8px 8px 0 8px; margin: 0; color: #777; }

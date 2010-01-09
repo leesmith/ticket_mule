@@ -13,7 +13,7 @@
   <% end -%>
 </table>
 
-<%= will_paginate @contacts, :previous_label => '&#8249;', :next_label => '&#8250;' %><span class="loading"><img src="/images/loading.gif" alt="Loading..." /></span>
+<%= will_paginate @contacts, :previous_label => '&#8249;', :next_label => '&#8250;' %>
 <% if @total_contacts -%>
   <div style="margin: 6px 0; font-style: italic; color: #333; text-align:center;"><%=@total_contacts %> <%= @total_contacts == 1 ? "contact" : "contacts" %> found.</div>
 <% end -%>
