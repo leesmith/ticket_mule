@@ -48,4 +48,7 @@ Rails::Initializer.run do |config|
   # All files from config/locales/*.rb,yml are added automatically.
   # config.i18n.load_path << Dir[File.join(RAILS_ROOT, 'my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+
+  # Define subdirectory root
+  # config.action_controller.relative_url_root = '/myapp'
 end

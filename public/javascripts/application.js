@@ -76,8 +76,9 @@ $(function() {
 //ticket jump form
 function doTicketJump() {
     var ticket_id = document.getElementById("jump_id").value;
+    var app_root = document.getElementById("app_root").value;
     if ((ticket_id != "") && (ticket_id.length > 0)) {
-        location.href = "/tickets/"+ticket_id;
+        location.href = app_root+"/tickets/"+ticket_id;
     }
     return false;
 }

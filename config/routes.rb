@@ -27,7 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :alerts
 
   map.with_options :controller => 'admin' do |a|
-    a.index '/admin', :action => 'index', :conditions => { :method => :get }
+    a.admin_index '/admin', :action => 'index', :conditions => { :method => :get }
     a.add_group '/admin/add_group', :action => 'add_group', :conditions => { :method => :post }
     a.add_status '/admin/add_status', :action => 'add_status', :conditions => { :method => :post }
     a.add_priority '/admin/add_priority', :action => 'add_priority', :conditions => { :method => :post }

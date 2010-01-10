@@ -22,4 +22,9 @@ module ApplicationHelper
   def tab_for(tab, link, label=nil)
     content_tag(:li, link_to(content_tag(:span, label || tab.to_s.titleize), link, :class => ("active" if @current_tab == tab)))
   end
+
+  # Return application url_root
+  def app_root
+    ActionController::Base.relative_url_root
+  end
 end

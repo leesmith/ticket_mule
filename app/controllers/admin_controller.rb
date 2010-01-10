@@ -6,12 +6,12 @@ class AdminController < ApplicationController
 
   def add_group
     @group = Group.new(params[:group])
-    redirect_to('/admin') and return if @group.name.blank?
+    redirect_to admin_index_path and return if @group.name.blank?
 
     respond_to do |format|
       if @group.save
         flash[:success] = "Group #{@group.name} was successfully created!"
-        format.html { redirect_to('/admin') }
+        format.html { redirect_to admin_index_path }
       else
         #set initial tab to display errors...must match tab position in index view
         @initial_tab_index = 0
@@ -22,12 +22,12 @@ class AdminController < ApplicationController
 
   def add_status
     @status = Status.new(params[:status])
-    redirect_to('/admin') and return if @status.name.blank?
+    redirect_to admin_index_path and return if @status.name.blank?
 
     respond_to do |format|
       if @status.save
         flash[:success] = "Status #{@status.name} was successfully created!"
-        format.html { redirect_to('/admin') }
+        format.html { redirect_to admin_index_path }
       else
         #set initial tab to display errors...must match tab position in index view
         @initial_tab_index = 1
@@ -38,12 +38,12 @@ class AdminController < ApplicationController
 
   def add_priority
     @priority = Priority.new(params[:priority])
-    redirect_to('/admin') and return if @priority.name.blank?
+    redirect_to admin_index_path and return if @priority.name.blank?
 
     respond_to do |format|
       if @priority.save
         flash[:success] = "Priority #{@priority.name} was successfully created!"
-        format.html { redirect_to('/admin') }
+        format.html { redirect_to admin_index_path }
       else
         #set initial tab to display errors...must match tab position in index view
         @initial_tab_index = 2
@@ -58,7 +58,7 @@ class AdminController < ApplicationController
     respond_to do |format|
       if @user.save
         flash[:success] = "User #{@user.username} was successfully created!"
-        format.html { redirect_to('/admin') }
+        format.html { redirect_to admin_index_path }
       else
         #set initial tab to display errors...must match tab position in index view
         @initial_tab_index = 3
@@ -81,7 +81,7 @@ class AdminController < ApplicationController
     respond_to do |format|
       if @group.save
         flash[:success] = flash_msg
-        format.html { redirect_to('/admin') }
+        format.html { redirect_to admin_index_path }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
       else
         format.html { render :action => 'index' }
@@ -104,7 +104,7 @@ class AdminController < ApplicationController
     respond_to do |format|
       if @status.save
         flash[:success] = flash_msg
-        format.html { redirect_to('/admin') }
+        format.html { redirect_to admin_index_path }
         format.xml  { render :xml => @status, :status => :created, :location => @status }
       else
         format.html { render :action => 'index' }
@@ -127,7 +127,7 @@ class AdminController < ApplicationController
     respond_to do |format|
       if @priority.save
         flash[:success] = flash_msg
-        format.html { redirect_to('/admin') }
+        format.html { redirect_to admin_index_path }
         format.xml  { render :xml => @priority, :status => :created, :location => @priority }
       else
         format.html { render :action => 'index' }
