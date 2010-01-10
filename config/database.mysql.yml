@@ -1,0 +1,24 @@
+common: &shared
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  database: db_development
+  username: username
+  password:
+  <<: *shared
+
+test:
+  database: db_test
+  username: username
+  password:
+  <<: *shared
+
+production:
+  database: db_production
+  username: username
+  password:
+  <<: *shared
