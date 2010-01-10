@@ -25,11 +25,11 @@ class Ticket < ActiveRecord::Base
   named_scope :closed_tickets, :limit => 5, :joins => :status, :include => [:creator, :owner, :group, :status, :priority], :conditions => ['statuses.name = ?', 'Closed'], :order => ['closed_at DESC']
 
   def self.timeline_opened_tickets(from_date, to_date)
-    self.count(:group => 'date(created_at)', :having => ['created_at >= ? and created_at < ?', from_date, to_date], :order => 'created_at')
+    self.count(:group => 'date(created_at)', :having => ['date_created_at >= ? and date_created_at < ?', from_date, to_date], :order => 'date_created_at')
   end
 
   def self.timeline_closed_tickets(from_date, to_date)
-    self.count(:group => 'date(closed_at)', :having => ['closed_at >= ? and closed_at < ?', from_date, to_date], :order => 'closed_at')
+    self.count(:group => 'date(closed_at)', :having => ['date_closed_at >= ? and date_closed_at < ?', from_date, to_date], :order => 'date_closed_at')
   end
 
   def closed?
