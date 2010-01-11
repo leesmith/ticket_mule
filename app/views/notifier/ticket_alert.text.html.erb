@@ -3,14 +3,16 @@
 <html>
 <head><meta http-equiv="content-type" content="text/html;charset=UTF-8" /></head>
 <body>
-<h1>TicketMule Update Alert</h1>
-<p>
-You are receiving this alert because ticket #<%= @ticket.id -%> has been updated:<br/>
-<%= @audit_comment -%>
-</p>
-<p>
-View the ticket at the link below:<br/>
-<%= ticket_url @ticket -%>
-</p>
+
+<h2>TicketMule Update Alert</h2>
+
+<p>You are receiving this alert because ticket #<%= @ticket.id -%> has been updated:</p>
+
+<p><%= @audit_comment -%></p>
+
+<p>View the ticket at the link below:</p>
+
+<p><%= ticket_url @ticket -%></p>
+
 </body>
 </html>
