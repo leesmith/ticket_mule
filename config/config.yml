@@ -3,18 +3,18 @@ development:
   session_timeout: 15
   attachment_size_limit: 10
   domain_name: "localhost:3000"
-  noreply_email: "ticketmule@mycompany.com"
+  app_email: "ticketmule@mycompany.com"
 
 test:
   failed_logins_limit: 5
   session_timeout: 15
   attachment_size_limit: 10
-  domain_name: "mycompany.com"
-  noreply_email: "ticketmule@mycompany.com"
+  domain_name: "www.mycompany.com"
+  app_email: "ticketmule@mycompany.com"
 
 production:
-  failed_logins_limit: 5                       # number of consecutive failed logins before lockout
-  session_timeout: 15                          # in minutes
-  attachment_size_limit: 10                    # in megabytes
-  domain_name: "mycompany.com"                 # domain name
-  noreply_email: "ticketmule@mycompany.com"    # application email
+  failed_logins_limit: 5                   # number of consecutive failed logins before lockout
+  session_timeout: 15                      # in minutes
+  attachment_size_limit: 10                # in megabytes
+  domain_name: "www.mycompany.com"         # domain name
+  app_email: "ticketmule@mycompany.com"    # application email
