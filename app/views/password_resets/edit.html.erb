@@ -5,10 +5,10 @@
       <%= f.error_messages %>
       <dl>
         <dt><label for="password">Password</label></dt>
-        <dd><%= f.password_field :password, :class => "textfield" %></dd>
+        <dd><%= f.password_field :password, :class => "textfield", :size => "20" %></dd>
 
         <dt><label for="password_confirmation">Confirm Password</label></dt>
-        <dd><%= f.password_field :password_confirmation, :class => "textfield" %></dd>
+        <dd><%= f.password_field :password_confirmation, :class => "textfield", :style => "20" %></dd>
 
         <dd><%= f.submit "Update", :class => "button" %></dd>
       </dl>
