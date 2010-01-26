@@ -16,9 +16,9 @@ No frills, general use support ticket tracking.  Easily document and communicate
 
 == Included Gems
 
-* <em>will_paginate 2.3.11</em>
+* <em>will_paginate 2.3.12</em>
 * <em>authlogic 2.1.3</em>
-* <em>searchlogic 2.3.9</em>
+* <em>searchlogic 2.4.1</em>
 * <em>paperclip 2.3.1.1</em>
 * <em>prawn 0.6.3</em>
 * <em>populator 0.2.5</em>
