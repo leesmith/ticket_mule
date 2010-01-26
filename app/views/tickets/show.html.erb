@@ -1,7 +1,7 @@
 <% content_for :button_list do %>
 <div class="right-container">
-  <%= link_to 'New ticket', new_ticket_path, :method => :get, :class => 'big-button' -%>
-  <%= link_to 'New contact', new_contact_path, :method => :get, :class => 'big-button' -%>
+  <%= button_to 'New ticket', new_ticket_path, :method => :get, :class => 'green button' -%>
+  <%= button_to 'New contact', new_contact_path, :method => :get, :class => 'green button' -%>
 </div>
 <% end %>
 
