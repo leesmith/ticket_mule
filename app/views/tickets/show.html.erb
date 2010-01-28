@@ -56,7 +56,6 @@
 <div id="add-comment">
 <% form_for [@ticket, Comment.new] do |f| %>
   <p>
-    <label for="comment_comment"><strong>New Comment</strong></label><br />
     <%= f.text_area :comment, :size => "70x6", :class => "textarea" %>
   </p>
   <p id="close-check"><%= check_box_tag(:close_ticket) -%>  <%= label_tag(:close_ticket, "Close ticket with this comment") -%></p>
@@ -67,8 +66,8 @@
 <div id="add-attachment">
   <% form_for [@ticket, Attachment.new], :html => { :multipart => true } do |a| %>
     <p>
-      <label for="attachment_data"><strong>New Attachment</strong></label><br/>
       <%= a.file_field :data %>
+      <span id="attachment_limit"><%= "Limit #{APP_CONFIG['attachment_size_limit']} megabytes" %></span>
     </p>
     <p><%= a.submit "Add Attachment", :class => "button" %>&nbsp;&nbsp;<%= link_to_function "Cancel", "$('#add-attachment').slideToggle();" -%></p>
   <% end %>

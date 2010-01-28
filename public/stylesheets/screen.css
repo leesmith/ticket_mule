@@ -216,6 +216,8 @@ form a:hover { color: #90af4c; }
 #attachment-list .zip { background: transparent url('../images/document-zipper.png') no-repeat 0 2px; }
 #attachment-list .unknown { background: transparent url('../images/document.png') no-repeat 0 2px; }
 
+#attachment_limit { display: block; margin: 0; padding: 0; color: #666; font-size: 10px; font-style: italic; font-weight: normal; }
+
 #add-attachment, #add-comment { background-color: #fff; }
 #add-attachment p, #add-comment p { margin: 0 0 5px 0; padding: 3px; }
 #close-check { display: inline-block; }
