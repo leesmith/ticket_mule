@@ -1,13 +1,13 @@
 <div class="right" id="controls">
-  <%= link_to 'Edit', edit_contact_path, :class => "edit-contact" -%> |
+  <%= link_to 'Edit', edit_contact_path, :class => "edit-contact", :title => 'Edit contact' -%> |
   <% if @current_user.admin? -%>
     <% unless @contact.enabled? -%>
-      <%= link_to 'Enable', toggle_contact_path, :confirm => "Really enable contact #{@contact.full_name}?", :method => :post, :class => 'enable' -%> |
+      <%= link_to 'Enable', toggle_contact_path, :confirm => "Really enable contact #{@contact.full_name}?", :method => :post, :class => 'enable', :title => 'Enable contact' -%> |
     <% else -%>
-      <%= link_to 'Disable', toggle_contact_path, :confirm => "Really disable contact #{@contact.full_name}?", :method => :post, :class => 'disable' -%> |
+      <%= link_to 'Disable', toggle_contact_path, :confirm => "Really disable contact #{@contact.full_name}?", :method => :post, :class => 'disable', :title => 'Disable contact' -%> |
     <% end -%>
   <% end -%>
-  <%= link_to 'Back', contacts_path, :class => "back" -%>
+  <%= link_to 'Back', :back, :class => 'back', :title => 'Go back' -%>
 </div>
 
 <h2<%= @contact.enabled? ? '' : ' class="disabled"' -%>><%=h @contact.full_name -%></h2>

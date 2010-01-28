@@ -1,15 +1,15 @@
 <div class="right" id="controls">
   <% if @current_user.admin? -%>
-    <%= link_to 'Edit', edit_user_path(@user), :class => 'edit-user' %> |
+    <%= link_to 'Edit', edit_user_path(@user), :class => 'edit-user', :title => 'Edit user' %> |
     <% unless @user.enabled? -%>
-      <%= link_to 'Enable', toggle_user_path, :confirm => "Really enable #{@user.username}?", :method => :post, :class => 'enable' -%> |
+      <%= link_to 'Enable', toggle_user_path, :confirm => "Really enable #{@user.username}?", :method => :post, :class => 'enable', :title => 'Enable user' -%> |
     <% else -%>
-      <%= link_to 'Disable', toggle_user_path, :confirm => "Really disable #{@user.username}?", :method => :post, :class => 'disable' -%> |
+      <%= link_to 'Disable', toggle_user_path, :confirm => "Really disable #{@user.username}?", :method => :post, :class => 'disable', :title => 'Disable user' -%> |
     <% end -%>
   <% elsif @current_user.id == @user.id -%>
-    <%= link_to 'Edit', edit_user_path, :class => 'edit-user' %> |
+    <%= link_to 'Edit', edit_user_path, :class => 'edit-user', :title => 'Edit user' %> |
   <% end -%>
-  <%= link_to 'Back', users_path, :class => 'back' -%>
+  <%= link_to 'Back', :back, :class => 'back', :title => 'Go back' -%>
 </div>
 
 <%= image_tag "avatar.gif", :alt => "", :style => "border: 1px solid #ddd; padding: 3px; margin: 0 10px 0 0;" %>

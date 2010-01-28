@@ -18,7 +18,7 @@
 <% if @current_user.admin? -%>
   <%= link_to 'Delete', @ticket, :confirm => "Really delete ticket ##{@ticket.id} and all its associated data?", :method => :delete, :class => 'delete', :title => 'Delete ticket' -%> |
 <% end -%>
-<%= link_to 'Back', tickets_path, :class => 'back', :title => 'Go back' -%>
+<%= link_to 'Back', :back, :class => 'back', :title => 'Go back' -%>
 </div>
 
 <h2 class="left <%= @ticket.closed? ? 'disabled' : '' -%>">Ticket #<%= @ticket.id -%></h2>
