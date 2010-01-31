@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  rank: 1
-  name: MyString
+#one:
+#  rank: 1
+#  name: MyString
 
-two:
-  rank: 1
-  name: MyString
+#two:
+#  rank: 1
+#  name: MyString
