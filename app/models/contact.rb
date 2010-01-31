@@ -7,7 +7,8 @@ class Contact < ActiveRecord::Base
   named_scope :enabled, :order => 'last_name, first_name', :conditions => { :disabled_at => nil }
 
   # Validations
-  validates_presence_of :last_name, :email
+  validates_presence_of :last_name
+  validates_format_of :email, :with => Authlogic::Regex.email
 
   def full_name
     if first_name.blank?
