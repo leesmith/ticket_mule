@@ -6,4 +6,3 @@ pkg/*
 coverage/*
 doc/*
 benchmarks/*
-.specification
