@@ -13,4 +13,11 @@ class ContactTest < ActiveSupport::TestCase
     contact = Factory(:contact)
     assert contact.valid?
   end
+
+  test "valid full name" do
+    contact = Factory(:contact, :first_name => 'Jack', :last_name => 'Daniels')
+    assert_equal 'Daniels, Jack', contact.full_name
+    contact.first_name = ''
+    assert_equal 'Daniels', contact.full_name
+  end
 end
