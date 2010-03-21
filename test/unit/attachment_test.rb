@@ -4,7 +4,7 @@ class AttachmentTest < ActiveSupport::TestCase
   test "invalid with empty attributes" do
     attachment = Attachment.new
     assert !attachment.valid?
-    puts attachment.errors.full_messages
+    #puts attachment.errors.full_messages
     assert attachment.errors.invalid?(:ticket_id)
     assert attachment.errors.invalid?(:user_id)
     #assert attachment.errors.invalid?(:data_file_size)
