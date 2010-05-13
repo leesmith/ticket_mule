@@ -70,14 +70,14 @@
   </div>
 <% end -%>
 
-<% if @current_user.id == @user.id and !@user.alerts.empty? -%>
+<% if (@current_user.id == @user.id or @current_user.admin?) and !@user.alerts.empty? -%>
   <h3 class="toggle" id="alerts-toggle">My Ticket Alerts</h3>
   <div id="alert-list">
     <ul>
       <% @user.alerts.each do |alert| -%>
       <li>
         <strong><%= link_to "Ticket ##{alert.ticket_id}", ticket_path(alert.ticket_id) -%></strong> added on <%= nice_date alert.created_at unless alert.created_at.nil? -%>
-        <span><%= link_to 'Delete', { :action=> 'destroy', :controller => 'alerts', :id => alert.ticket_id }, :method => :delete, :confirm => "Really delete alert for ticket ##{alert.ticket_id}?" -%></span>
+        <span><%= link_to 'Delete', { :action=> 'destroy', :controller => 'alerts', :id => alert.id }, :method => :delete, :confirm => "Really delete alert for ticket ##{alert.ticket_id}?" -%></span>
       </li>
       <% end -%>
     </ul>

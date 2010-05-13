@@ -11,7 +11,7 @@
 <% if @alert.nil? -%>
   <%= link_to 'Add Alert', { :controller => 'alerts', :action => 'create', :id => @ticket.id }, :confirm => "Really add alert for ticket ##{@ticket.id}?", :method => :post, :class => 'add-alert', :title => 'Add ticket alert' -%> |
 <% else -%>
-  <%= link_to 'Remove Alert', { :action => 'destroy', :controller => 'alerts', :id => @ticket.id }, :confirm => "Really remove alert for ticket ##{@ticket.id}?", :method => :delete, :class => 'delete-alert', :title => 'Remove alert' -%> |
+  <%= link_to 'Remove Alert', { :action => 'destroy', :controller => 'alerts', :id => @alert.id }, :confirm => "Really remove alert for ticket ##{@ticket.id}?", :method => :delete, :class => 'delete-alert', :title => 'Remove alert' -%> |
 <% end -%>
 <%= link_to_function 'Add Comment', "$('#add-comment').slideToggle();", :class => 'add-comment', :title => 'Add comment' -%> |
 <%= link_to_function 'Add Attachment', "$('#add-attachment').slideToggle();", :class => 'add-attach', :title => 'Add attachment' -%> |

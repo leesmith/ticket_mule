@@ -11,7 +11,7 @@
 
 ActiveRecord::Schema.define(:version => 20090914141258) do
 
-  create_table "alerts", :id => false, :force => true do |t|
+  create_table "alerts", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.integer  "ticket_id",  :null => false
     t.datetime "created_at"

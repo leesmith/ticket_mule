@@ -19,11 +19,17 @@ class AlertsController < ApplicationController
 
   def destroy
     # for the current_user, delete the alert with the incoming ticket id
-    alert = Alert.find_by_ticket_id_and_user_id(params[:id], @current_user.id)
+    #alert = Alert.find_by_ticket_id_and_user_id(params[:id], @current_user.id)
+    if @current_user.admin?
+      alert = Alert.find(params[:id])
+    else
+      alert = Alert.find_by_id_and_user_id(params[:id], @current_user.id)
+    end
+    ticket_id = alert.ticket_id
     alert.destroy
 
     respond_to do |format|
-      flash[:success] = "Your alert for ticket ##{params[:id]} was removed!"
+      flash[:success] = "The alert for ticket ##{ticket_id} was removed!"
       format.html { redirect_to :back }
       format.xml  { head :ok }
     end
