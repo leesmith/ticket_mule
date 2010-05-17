@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  include Gravatarable
+
   # Authlogic config
   acts_as_authentic do |c|
     c.logged_in_timeout = APP_CONFIG['session_timeout'].minutes
