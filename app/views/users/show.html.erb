@@ -12,7 +12,8 @@
   <%= link_to 'Back', :back, :class => 'back', :title => 'Go back' -%>
 </div>
 
-<%= image_tag "avatar.gif", :alt => "", :class => "profile-avatar" %>
+<%#= image_tag "avatar.gif", :alt => "", :class => "profile-avatar" %>
+<%= user_avatar @user %>
 <h2 style="display: inline;"<%= @user.enabled? ? '' : ' class="disabled"' -%>><%= h @user.username -%></h2>
 
 <table class="profile <%= @user.enabled? ? '' : 'disabled' -%>">

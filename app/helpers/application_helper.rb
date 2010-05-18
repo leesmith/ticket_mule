@@ -27,4 +27,10 @@ module ApplicationHelper
   def app_root
     ActionController::Base.relative_url_root
   end
+
+  def user_avatar(user)
+    img_source = image_path("avatar.gif")
+    img_url = root_url
+    image_tag user.gravatar(50, img_url+img_source), :alt => "", :class => "profile-avatar"
+  end
 end
