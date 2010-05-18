@@ -1,6 +1,6 @@
 class CreateAlerts < ActiveRecord::Migration
   def self.up
-    create_table :alerts, :id => false do |t|
+    create_table :alerts do |t|
       t.references :user, :null => false
       t.references :ticket, :null => false
       t.timestamps
