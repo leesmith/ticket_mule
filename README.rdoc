@@ -12,13 +12,14 @@ No frills, general use support ticket tracking.  Easily document and communicate
 * Export ticket in PDF format
 * No complicated permission system...only admins can perform negative actions
 * In-line admin controls to delete comments, attachments, and tickets
-* Ruby on Rails 2.3.5
+* Gravatar integration
+* Ruby on Rails 2.3.8
 
 == Included Gems
 
 * <em>will_paginate 2.3.12</em>
-* <em>authlogic 2.1.3</em>
-* <em>searchlogic 2.4.1</em>
+* <em>authlogic 2.1.4</em>
+* <em>searchlogic 2.4.19</em>
 * <em>paperclip 2.3.1.1</em>
 * <em>prawn 0.6.3</em>
 * <em>populator 0.2.5</em>
