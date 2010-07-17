@@ -6,6 +6,9 @@
     <% else -%>
       <%= link_to 'Disable', toggle_user_path, :confirm => "Really disable #{@user.username}?", :method => :post, :class => 'disable', :title => 'Disable user' -%> |
     <% end -%>
+    <% if @user.locked? -%>
+      <%= link_to 'Unlock', unlock_user_path, :confirm => "Really unlock #{@user.username}?", :method => :post, :class => 'unlock', :title => 'Unlock user' -%> |
+    <% end -%>
   <% elsif @current_user.id == @user.id -%>
     <%= link_to 'Edit', edit_user_path, :class => 'edit-user', :title => 'Edit user' %> |
   <% end -%>

@@ -1,5 +1,8 @@
 class UserSession < Authlogic::Session::Base
 
+  # allow login with either username or email
+  find_by_login_method :find_by_enabled_user
+
   # ban user after failed login limit is exceeded
   consecutive_failed_logins_limit APP_CONFIG['failed_logins_limit']
 

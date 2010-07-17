@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :index, :edit, :update]
-  before_filter :require_admin, :only => [:destroy]
-  before_filter :lookup_user, :only => [:show, :destroy, :toggle]
+  before_filter :require_admin, :only => [:destroy, :unlock]
+  before_filter :lookup_user, :only => [:show, :destroy, :toggle, :unlock]
   before_filter :set_current_tab
 
   def new
@@ -90,6 +90,23 @@ class UsersController < ApplicationController
       if @user.save
         flash[:success] = flash_msg
         format.html { redirect_to(@user) }
+        format.xml  { render :xml => @user, :status => :created, :location => @user }
+      else
+        format.html { render :action => "index" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def unlock
+    if @user.locked?
+      @user.failed_login_count = nil
+    end
+
+    respond_to do |format|
+      if @user.save
+        flash[:success] = "#{@user.username} was successfully unlocked!"
+        format.html { redirect_to @user }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "index" }

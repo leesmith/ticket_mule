@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :dashboard, :only => :index
 
   # users can add themselves
-  map.resources :users, :member => { :toggle => :post }
+  map.resources :users, :member => { :toggle => :post, :unlock => :post }
 
   # only admins can add users
   #map.resources :users, :member => { :toggle => :post }, :except => :new

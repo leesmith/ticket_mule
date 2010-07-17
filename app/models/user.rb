@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
 
   attr_protected :admin
 
+  def self.find_by_enabled_user(login)
+    find_by_username(login, :conditions => { :disabled_at => nil })
+  end
+
   def full_name
     if first_name.blank?
       last_name
@@ -50,6 +54,14 @@ class User < ActiveRecord::Base
 
   def enabled?
     disabled_at.blank?
+  end
+
+  def locked?
+    if failed_login_count.blank?
+      false
+    else
+      failed_login_count >= APP_CONFIG['failed_logins_limit']
+    end
   end
 
 end
