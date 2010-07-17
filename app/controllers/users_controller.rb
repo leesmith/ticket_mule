@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :index, :edit, :update]
-  before_filter :require_admin, :only => [:destroy, :unlock]
+  before_filter :require_admin, :only => [:destroy, :toggle, :unlock]
   before_filter :lookup_user, :only => [:show, :destroy, :toggle, :unlock]
   before_filter :set_current_tab
 
