@@ -20,9 +20,9 @@ class Ticket < ActiveRecord::Base
 
   # Scopes
   named_scope :not_closed, :joins => :status, :conditions => ['statuses.name <> ?', 'Closed']
-  named_scope :recently_assigned_to, lambda { | user_id | { :limit => 5, :conditions => { :owned_by => user_id }, :include => [:creator, :owner, :group, :status, :priority, :contact], :order => ['updated_at DESC']} }
-  named_scope :active_tickets, :limit => 5, :include => [:creator, :owner, :group, :status, :priority], :order => ['updated_at DESC']
-  named_scope :closed_tickets, :limit => 5, :joins => :status, :include => [:creator, :owner, :group, :status, :priority], :conditions => ['statuses.name = ?', 'Closed'], :order => ['closed_at DESC']
+  named_scope :recently_assigned_to, lambda { | user_id | { :limit => 5, :conditions => { :owned_by => user_id }, :include => [:creator, :owner, :group, :status, :priority, :contact], :order => 'updated_at DESC' } }
+  named_scope :active_tickets, :limit => 5, :include => [:creator, :owner, :group, :status, :priority], :order => 'updated_at DESC'
+  named_scope :closed_tickets, :limit => 5, :joins => :status, :include => [:creator, :owner, :group, :status, :priority], :conditions => ['statuses.name = ?', 'Closed'], :order => 'closed_at DESC'
 
   def self.timeline_opened_tickets(from_date, to_date)
     self.count(:group => 'date(created_at)', :having => ['date_created_at >= ? and date_created_at < ?', from_date, to_date], :order => 'date_created_at')
