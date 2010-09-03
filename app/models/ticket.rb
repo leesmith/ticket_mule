@@ -13,7 +13,7 @@ class Ticket < ActiveRecord::Base
   has_many :alert_users, :through => :alerts, :class_name => 'User', :source => :user
 
   # Validations
-  validates_presence_of :title, :group_id, :status_id, :priority_id, :contact_id
+  validates_presence_of :title, :group_id, :status_id, :priority_id, :contact_id, :created_by
 
   # Callbacks
   before_update :set_closed_at
@@ -24,12 +24,12 @@ class Ticket < ActiveRecord::Base
   named_scope :active_tickets, :limit => 5, :include => [:creator, :owner, :group, :status, :priority], :order => 'updated_at DESC'
   named_scope :closed_tickets, :limit => 5, :joins => :status, :include => [:creator, :owner, :group, :status, :priority], :conditions => ['statuses.name = ?', 'Closed'], :order => 'closed_at DESC'
 
-  def self.timeline_opened_tickets(from_date, to_date)
-    self.count(:group => 'date(created_at)', :having => ['date_created_at >= ? and date_created_at < ?', from_date, to_date], :order => 'date_created_at')
+  def self.timeline_opened_tickets
+    self.count(:group => 'date(created_at)', :having => ['date_created_at >= ? and date_created_at <= ?', (Time.zone.now.beginning_of_day - 30.days).to_s, (Time.zone.now.end_of_day - 1.day).to_s])
   end
 
-  def self.timeline_closed_tickets(from_date, to_date)
-    self.count(:group => 'date(closed_at)', :having => ['date_closed_at >= ? and date_closed_at < ?', from_date, to_date], :order => 'date_closed_at')
+  def self.timeline_closed_tickets
+    self.count(:group => 'date(closed_at)', :having => ['date_closed_at >= ? and date_closed_at <= ?', (Time.zone.now.beginning_of_day - 30.days).to_s, (Time.zone.now.end_of_day - 1.day).to_s])
   end
 
   def closed?
@@ -45,7 +45,6 @@ class Ticket < ActiveRecord::Base
   def set_closed_at
     # update the closed_at timestamp if the ticket is being closed
     if closed?
-      logger.info("Ticket is being closed!")
       self.closed_at = DateTime.now if self.closed_at.nil?
     else
       self.closed_at = nil unless self.closed_at.nil?

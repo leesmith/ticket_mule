@@ -4,6 +4,8 @@ class Status < ActiveRecord::Base
   has_many :tickets
 
   # Scopes
+  named_scope :open, :conditions => "name = 'Open'"
+  named_scope :closed, :conditions => "name = 'Closed'"
   named_scope :enabled, :order => 'name', :conditions => { :disabled_at => nil }
   named_scope :disabled, :order => 'name', :conditions => ['disabled_at IS NOT NULL']
 

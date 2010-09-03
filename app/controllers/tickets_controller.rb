@@ -9,8 +9,8 @@ class TicketsController < ApplicationController
   def index
     @tickets_per_page = tickets_per_page
     @search = Ticket.search(params[:search])
-    @closed_status = Status.find(:first, :select => 'id', :conditions => "name = 'Closed'")
-    @open_status = Status.find(:first, :select => 'id', :conditions => "name = 'Open'")
+    @closed_status = Status.closed.first
+    @open_status = Status.open.first
 
     if params[:search]
       if !params[:search][:created_at_gte].blank?
