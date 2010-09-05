@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+  
   test "should get index" do
+    UserSession.create Factory.build(:user)
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
@@ -12,34 +15,14 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create user" do
-    assert_difference('User.count') do
-      post :create, :user => { }
-    end
-
-    assert_redirected_to user_path(assigns(:user))
-  end
-
   test "should show user" do
-    get :show, :id => users(:one).id
+    get :show, :id => Factory(:user).id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => users(:one).id
+    get :edit, :id => Factory(:user).id
     assert_response :success
   end
 
-  test "should update user" do
-    put :update, :id => users(:one).id, :user => { }
-    assert_redirected_to user_path(assigns(:user))
-  end
-
-  test "should destroy user" do
-    assert_difference('User.count', -1) do
-      delete :destroy, :id => users(:one).id
-    end
-
-    assert_redirected_to users_path
-  end
 end

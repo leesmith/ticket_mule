@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class AdminControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "admin index route" do
+    assert_routing '/admin', { :controller => "admin", :action => "index" }
+  end
+
+  test "index without user" do
+    get :index
+    assert_redirected_to root_path
+    assert_not_nil flash[:error]
   end
 end
