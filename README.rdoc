@@ -13,25 +13,25 @@ No frills, general use support ticket tracking.  Easily document and communicate
 * No complicated permission system...only admins can perform negative actions
 * In-line admin controls to delete comments, attachments, and tickets
 * Gravatar integration
-* Ruby on Rails 2.3.8
+* Ruby on Rails 2.3.9
 
 == Included Gems
 
-* <em>will_paginate 2.3.14</em>
-* <em>authlogic 2.1.5</em>
-* <em>searchlogic 2.4.19</em>
-* <em>paperclip 2.3.1.1</em>
+* <em>will_paginate 2.3.15</em>
+* <em>authlogic 2.1.6</em>
+* <em>searchlogic 2.4.25</em>
+* <em>paperclip 2.3.3</em>
 * <em>prawn 0.6.3</em>
 * <em>populator 0.2.5</em>
 * <em>faker 0.3.1</em>
 
-<em>populator</em> and <em>faker</em> are only used to load fake data into TicketMule.
+<em>populator</em> and <em>faker</em> are only used to load fake data.
 
 == Install
 
 Basic installation creates a fresh database with a single admin user.  See +db+/+seeds+.+rb+ for admin user information.
 
-You can choose to test drive TicketMule with fake data as described below.
+After performing the basic setup, you can choose to test drive TicketMule by running the +faker+ rake task as described below.
 
 Create a database.yml file and modify as needed:
 
