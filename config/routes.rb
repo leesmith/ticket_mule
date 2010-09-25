@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :member => { :toggle => :post, :unlock => :post }
 
   # only admins can add users
-  #map.resources :users, :member => { :toggle => :post }, :except => :new
+  #map.resources :users, :member => { :toggle => :post, :unlock => :post }, :except => :new
 
   map.resources :contacts, :member => { :toggle => :post }
 
