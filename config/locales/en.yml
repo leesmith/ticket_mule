@@ -1,5 +1,17 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  ticketmule: 'TicketMule'
+  signed_in_as: 'Signed in as'
+  sign_out: 'Sign out'
+  sign_in: 'Sign in'
+  confirm_sign_out: 'Really sign out?'
+  powered_by: 'Powered by'
+  jump_to_ticket: 'Jump to Ticket'
+  enter_ticket_no: 'Enter a ticket number:'
+  go: 'Go'
+
+  menu:
+    dashboard: 'Dashboard'
+    tickets: 'Tickets'
+    users: 'Users'
+    contacts: 'Contacts'
+    admin: 'Admin'
