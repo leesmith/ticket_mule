@@ -3,11 +3,23 @@ en:
   signed_in_as: 'Signed in as'
   sign_out: 'Sign out'
   sign_in: 'Sign in'
+  forgot_password: 'Forgot your password?'
+  reset_password: 'Reset Password'
+  reset_instructions: 'Enter your email address below and instructions to reset your password will be emailed to you.'
+  change_my_password: 'Change My Password'
+  password: 'Password'
+  confirm_password: 'Confirm password'
+  email: 'Email'
   confirm_sign_out: 'Really sign out?'
   powered_by: 'Powered by'
   jump_to_ticket: 'Jump to Ticket'
   enter_ticket_no: 'Enter a ticket number:'
-  go: 'Go'
+  cancel: 'Cancel'
+
+  button:
+    go: 'Go'
+    submit: 'Submit'
+    update: 'Update'
 
   menu:
     dashboard: 'Dashboard'

@@ -1,5 +1,5 @@
 <div id="login-content">
-  <h1>Login</h1>
+  <h1><%=t 'sign_in' -%></h1>
 
   <div class="box">
     <%= show_flash %>
@@ -10,7 +10,7 @@
         <dt><%= f.label :password %></dt>
         <dd><%= f.password_field :password, :size => 20, :class => "textfield" %></dd>
         <dd><%= f.check_box :remember_me %><%= f.label :remember_me %></dd>
-        <dd><%= f.submit "Login", :class => "button" %>&nbsp;&nbsp;<%= link_to 'Forgot your password?', new_password_reset_path %></dd>
+        <dd><%= f.submit t('sign_in'), :class => "button" %>&nbsp;&nbsp;<%= link_to t('forgot_password'), new_password_reset_path %></dd>
       </dl>
       <% end %>
   </div>
