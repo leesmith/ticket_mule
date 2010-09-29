@@ -1,14 +1,14 @@
 <div id="login-content">
   <h1><%=t 'reset_password' -%></h1>
   <div class="box">
-    <%= show_flash %>
+    <%= show_flash -%>
     <p><%=t 'reset_instructions' -%></p>
     <% form_tag password_resets_path do %>
       <dl>
         <dt><label for="email"><%=t 'email' -%></label></dt>
         <dd><%= text_field_tag :email, {}, { :size => 20, :class => "textfield" } -%></dd>
 
-        <dd><%= submit_tag t('button.submit'), :class => "button" %>&nbsp;&nbsp;<%= link_to t('cancel'), login_path %></dd>
+        <dd><%= submit_tag t('button.submit'), :class => "button" -%>&nbsp;&nbsp;<%= link_to t('cancel'), login_path -%></dd>
       </dl>
     <% end %>
   </div>

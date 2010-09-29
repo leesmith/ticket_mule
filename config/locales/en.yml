@@ -3,10 +3,12 @@ en:
   signed_in_as: 'Signed in as'
   sign_out: 'Sign out'
   sign_in: 'Sign in'
+  remember_me: 'Remember me'
   forgot_password: 'Forgot your password?'
   reset_password: 'Reset Password'
   reset_instructions: 'Enter your email address below and instructions to reset your password will be emailed to you.'
   change_my_password: 'Change My Password'
+  username: 'Username'
   password: 'Password'
   confirm_password: 'Confirm password'
   email: 'Email'
@@ -16,14 +18,32 @@ en:
   enter_ticket_no: 'Enter a ticket number:'
   cancel: 'Cancel'
 
+  # Flash messages
+  welcome_on_login: 'Welcome %{username}!'
+  login_details: 'You last signed in on <strong>%{timestamp}</strong> from <strong>%{ip}</strong>'
+  locked_out: 'User is locked: exceeded failed sign in limit!'
+  invalid_signin: 'Invalid sign in attempt! Please try again.'
+  logout: 'Logout successful!'
+
+  # Buttons
   button:
     go: 'Go'
     submit: 'Submit'
     update: 'Update'
 
+  # Main tab menu
   menu:
     dashboard: 'Dashboard'
     tickets: 'Tickets'
     users: 'Users'
     contacts: 'Contacts'
     admin: 'Admin'
+
+  # Dashboard views
+  dashboard:
+    index:
+      active_tickets: 'Active Tickets' 
+      recently_closed_tickets: 'Recently Closed Tickets'
+      timeline: 'Timeline'
+      opened_tickets: 'Opened Tickets'
+      closed_tickets: 'Closed Tickets'

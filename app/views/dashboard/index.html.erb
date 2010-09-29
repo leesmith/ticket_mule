@@ -7,7 +7,7 @@
 
 <h2>Dashboard</h2>
 
-<h3 class="toggle" id="active-tickets">Active Tickets</h3>
+<h3 class="toggle" id="active-tickets"><%=t '.active_tickets' -%></h3>
 <div id="active-listing">
   <table class="listing" cellspacing="0">
   <thead>
@@ -39,7 +39,7 @@
   </table>
 </div>
 
-<h3 class="toggle" id="closed-tickets">Recently Closed Tickets</h3>
+<h3 class="toggle" id="closed-tickets"><%=t '.recently_closed_tickets' -%></h3>
 <div id="closed-listing">
   <table class="listing" cellspacing="0">
   <thead>
@@ -71,32 +71,32 @@
   </table>
 </div>
 
-<h3 class="toggle" id="timeline-toggle">Timeline</h3>
+<h3 class="toggle" id="timeline-toggle"><%=t '.timeline' -%></h3>
 <div id="timeline-wrapper">
   <div class="timeline left">
     <ul>
-      <% @timeline.each_with_index do |t, i| -%>
+      <% @timeline.each_with_index do |day, i| -%>
         <% ticket_count = @timeline_opened_tickets[@timeline[i]].blank? ? 0 : @timeline_opened_tickets[@timeline[i]] -%>
         <li>
-          <a href="#" title="<%= ticket_count -%> <%= ticket_count == 1 ? 'ticket' : 'tickets' -%> created on <%= t -%>" onclick="return false;">
+          <a href="#" title="<%= ticket_count -%> <%= ticket_count == 1 ? 'ticket' : 'tickets' -%> opened on <%= day -%>" onclick="return false;">
             <span class="count" style="<%= ticket_count == 0 ? "height: 1px;" : ticket_count == @max_opened ? "height: 100%;" : (ticket_count.to_f/@max_opened)*100 < 1 ? "height: 1px;" : "height: #{(ticket_count.to_f/@max_opened)*100}%;" -%>"><%= ticket_count -%></span>
           </a>
         </li>
       <% end -%>
     </ul>
-    <span class="timeline-label">Created Tickets</span>
+    <span class="timeline-label"><%=t '.opened_tickets' -%></span>
   </div>
   <div class="timeline right">
     <ul>
-      <% @timeline.each_with_index do |t, i| -%>
+      <% @timeline.each_with_index do |day, i| -%>
         <% ticket_count = @timeline_closed_tickets[@timeline[i]].blank? ? 0 : @timeline_closed_tickets[@timeline[i]] -%>
         <li>
-          <a href="#" title="<%= ticket_count -%> <%= ticket_count == 1 ? 'ticket' : 'tickets' -%> closed on <%= t -%>" onclick="return false;">
+          <a href="#" title="<%= ticket_count -%> <%= ticket_count == 1 ? 'ticket' : 'tickets' -%> closed on <%= day -%>" onclick="return false;">
             <span class="count" style="<%= ticket_count == 0 ? "height: 1px;" : ticket_count == @max_closed ? "height: 100%;" : (ticket_count.to_f/@max_closed)*100 < 1 ? "height: 1px;" : "height: #{(ticket_count.to_f/@max_closed)*100}%;" -%>"><%= ticket_count -%></span>
           </a>
         </li>
       <% end -%>
     </ul>
-    <span class="timeline-label">Closed Tickets</span>
+    <span class="timeline-label"><%=t '.closed_tickets' -%></span>
   </div>
 </div>
