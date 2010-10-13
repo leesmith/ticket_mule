@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
     @closed_tickets = Ticket.closed_tickets
 
     # create array of date strings from 30 days ago up to yesterday
-    @timeline = ((Date.parse 30.days.ago.to_s)..(Date.yesterday)).inject([]){ |accum, date| accum << date.to_s }
+    @timeline = ((Time.zone.now - 30.days).to_date..(Time.zone.now - 1.day).to_date).inject([]){ |accum, date| accum << date.to_s }
 
     @timeline_opened_tickets = Ticket.timeline_opened_tickets
     @timeline_closed_tickets = Ticket.timeline_closed_tickets
