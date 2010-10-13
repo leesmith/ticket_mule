@@ -1,11 +1,11 @@
 common: &shared
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  socket: /var/run/mysqld/mysqld.sock
-  username: root
+  port: 5433
+  username: lsmith
   password:
+
 development:
   database: ticket_mule_development
   <<: *shared
