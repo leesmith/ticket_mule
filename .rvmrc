@@ -1,7 +1,1 @@
-
-if [[ -d "${rvm_path:-$HOME/.rvm}/environments" \
-  && -s "${rvm_path:-$HOME/.rvm}/environments/ruby-1.8.7-p302@ticket_mule" ]] ; then
-  \. "${rvm_path:-$HOME/.rvm}/environments/ruby-1.8.7-p302@ticket_mule"
-else
-  rvm --create  "ruby-1.8.7-p302@ticket_mule"
-fi
+rvm --create use 'ruby-1.8.7-p302@ticket_mule'
