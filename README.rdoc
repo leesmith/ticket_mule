@@ -13,7 +13,7 @@ No frills, general use support ticket tracking.  Easily document and communicate
 * No complicated permission system...only admins can perform negative actions
 * In-line admin controls to delete comments, attachments, and tickets
 * Gravatar integration
-* Ruby on Rails 2.3.9
+* Ruby on Rails 2.3.10
 
 == Included Gems
 
@@ -26,6 +26,10 @@ No frills, general use support ticket tracking.  Easily document and communicate
 * <em>faker 0.3.1</em>
 
 <em>populator</em> and <em>faker</em> are only used to load fake data.
+
+== Database support
+
+TicketMule runs on PostgreSQL by default.  MySQL and SQLite can be used with a small change to a couple of queries in the Ticket model.  See {issue #10}[https://github.com/appogee/ticket_mule/issues/#issue/10] for details.
 
 == Install
 

@@ -5,6 +5,7 @@ common: &shared
   port: 5433
   username: lsmith
   password:
+  min_messages: warning
 
 development:
   database: ticket_mule_development
