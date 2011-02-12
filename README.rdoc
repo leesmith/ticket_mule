@@ -39,7 +39,7 @@ After performing the basic setup, you can choose to test drive TicketMule by run
 
 Create a database.yml file and modify as needed:
 
-  $ cp config/database.mysql.yml config/database.yml
+  $ cp config/database.postgresql.yml config/database.yml
 
 Configure TicketMule settings in the <em>production</em> block of +config+/+config+.+yml+.  See comments for details.
 
