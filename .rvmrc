@@ -1,1 +1,1 @@
-rvm --create use 'ruby-1.8.7-p302@ticket_mule'
+rvm --create use 'ruby-1.8.7-p330@ticket_mule'
