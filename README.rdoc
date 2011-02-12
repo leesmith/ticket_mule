@@ -13,7 +13,7 @@ No frills, general use support ticket tracking.  Easily document and communicate
 * No complicated permission system...only admins can perform negative actions
 * In-line admin controls to delete comments, attachments, and tickets
 * Gravatar integration
-* Ruby on Rails 2.3.10
+* Ruby on Rails 2.3.11
 
 == Included Gems
 
