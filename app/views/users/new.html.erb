@@ -1,11 +1,11 @@
 <div id="wide-content">
-  <h1>Sign Up</h1>
+  <h1><%= t '.sign_up' %></h1>
   <div class="box">
     <% form_for @user do |f| %>
       <%= f.error_messages %>
       <dl>
         <%= render :partial => "form", :object => f %>
-        <dd><%= f.submit "Sign up", :class => "button" %>&nbsp;&nbsp;<%= link_to "Cancel", login_path %></dd>
+        <dd><%= f.submit t( 'button.sign_up' ), :class => "button" %>&nbsp;&nbsp;<%= link_to t( 'cancel' ), login_path %></dd>
       </dl>
     <% end %>
   </div>

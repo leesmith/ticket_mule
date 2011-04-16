@@ -1,9 +1,9 @@
-<h2>Editing <%= @contact.full_name -%></h2>
+<h2><%= t( '.editing_x_contact', :contact => @contact.full_name ) -%></h2>
 
 <% form_for @contact do |f| %>
   <%= f.error_messages %>
   <dl>
     <%= render :partial => 'form' -%>
-    <dd><%= f.submit "Update", :class => "button" -%>&nbsp;&nbsp;<%= link_to 'Cancel', @contact %></dd>
+    <dd><%= f.submit t( 'button.update' ), :class => "button" -%>&nbsp;&nbsp;<%= link_to t( 'cancel' ), @contact %></dd>
   </dl>
 <% end -%>

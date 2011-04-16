@@ -1,18 +1,18 @@
-<% content_for :head do -%>
+<% content_for :head do %>
 <%= javascript_include_tag 'pagination' %>
-<% end -%>
+<% end %>
 
-<% content_for :button_list do -%>
+<% content_for :button_list do %>
 <div class="right-container">
-  <%= button_to 'New ticket', new_ticket_path, :method => :get, :class => "green button" %>
-  <%= button_to 'New contact', new_contact_path, :method => :get, :class => "green button" %>
+  <%= button_to t( 'button.new_ticket' ), new_ticket_path, :method => :get, :class => "green button" %>
+  <%= button_to t( 'button.new_contact' ), new_contact_path, :method => :get, :class => "green button" %>
 </div>
-<% end -%>
+<% end %>
 
-<h2>Users</h2>
+<h2><%= t '.users' %></h2>
 
-<%= render :partial => 'contacts/alphabet' -%>
+<%= render :partial => 'contacts/alphabet' %>
 
 <div id="users">
-  <%= render 'users' -%>
+  <%= render 'users' %>
 </div>

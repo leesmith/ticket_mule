@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   helper_method :current_user_session, :current_user
-  before_filter :set_time_zone
+  before_filter :set_time_zone, :set_locale
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -36,7 +36,11 @@ class ApplicationController < ActionController::Base
   private
 
   def set_time_zone
-    Time.zone = @current_user.time_zone if @current_user
+    Time.zone = current_user.time_zone if current_user
+  end
+
+  def set_locale
+    I18n.locale = current_user.language if current_user
   end
 
   def current_user_session
@@ -47,7 +51,7 @@ class ApplicationController < ActionController::Base
   def require_user
     unless current_user
       store_location
-      flash[:error] = "You must be logged in to access this page!"
+      flash[:error] = t 'login_required'
       redirect_to login_path
       return false
     end
@@ -56,7 +60,7 @@ class ApplicationController < ActionController::Base
   def require_no_user
     if current_user
       store_location
-      flash[:error] = "You must be logged out to access this page!"
+      flash[:error] = t 'logout_required'
       redirect_to root_url
       return false
     end
@@ -65,7 +69,7 @@ class ApplicationController < ActionController::Base
   def require_admin
     unless current_user && current_user.admin?
       store_location
-      flash[:error] = "Unauthorized access!"
+      flash[:error] = t 'unauthorized_access'
       redirect_to root_url
       return false
     end

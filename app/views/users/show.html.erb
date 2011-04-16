@@ -1,18 +1,18 @@
 <div class="right" id="controls">
   <% if @current_user.admin? -%>
-    <%= link_to 'Edit', edit_user_path(@user), :class => 'edit-user', :title => 'Edit user' %> |
+    <%= link_to t( 'edit' ), edit_user_path(@user), :class => 'edit-user', :title => t( '.edit_user' ) %> |
     <% unless @user.enabled? -%>
-      <%= link_to 'Enable', toggle_user_path, :confirm => "Really enable #{@user.username}?", :method => :post, :class => 'enable', :title => 'Enable user' -%> |
+      <%= link_to t( 'enable' ), toggle_user_path, :confirm => t( '.really_enable_user_x', :user => @user.username ), :method => :post, :class => 'enable', :title => t( '.enable_user' ) -%> |
     <% else -%>
-      <%= link_to 'Disable', toggle_user_path, :confirm => "Really disable #{@user.username}?", :method => :post, :class => 'disable', :title => 'Disable user' -%> |
+      <%= link_to t( 'disable' ), toggle_user_path, :confirm => t( '.really_disable_user_x', :user => @user.username ), :method => :post, :class => 'disable', :title => t( '.disable_user' ) -%> |
     <% end -%>
     <% if @user.locked? -%>
-      <%= link_to 'Unlock', unlock_user_path, :confirm => "Really unlock #{@user.username}?", :method => :post, :class => 'unlock', :title => 'Unlock user' -%> |
+      <%= link_to t( '.unlock' ), unlock_user_path, :confirm => t( '.really_unlock_user_x', :user => @user.username ), :method => :post, :class => 'unlock', :title => t( '.unlock_user' ) -%> |
     <% end -%>
   <% elsif @current_user.id == @user.id -%>
-    <%= link_to 'Edit', edit_user_path, :class => 'edit-user', :title => 'Edit user' %> |
+    <%= link_to t( '.edit' ), edit_user_path, :class => 'edit-user', :title => t(  '.edit_user' ) %> |
   <% end -%>
-  <%= link_to 'Back', :back, :class => 'back', :title => 'Go back' -%>
+  <%= link_to t( 'back' ), :back, :class => 'back', :title => t( 'back' ) -%>
 </div>
 
 <%#= image_tag "avatar.gif", :alt => "", :class => "profile-avatar" %>
@@ -21,37 +21,37 @@
 
 <table class="profile <%= @user.enabled? ? '' : 'disabled' -%>">
   <tr>
-    <td class="field">First name:</td><td class="value"><%=h @user.first_name -%></td>
-    <td class="field">Last name:</td><td class="value"><%=h @user.last_name -%></td>
+    <td class="field"><%= t 'users.users.first_name' %>:</td><td class="value"><%=h @user.first_name -%></td>
+    <td class="field"><%= t 'users.users.last_name' %>:</td><td class="value"><%=h @user.last_name -%></td>
   </tr>
   <tr>
-    <td class="field">Email:</td><td class="value"><%=h @user.email -%></td>
-    <td class="field">Timezone:</td><td class="value"><%=h @user.time_zone -%></td>
+    <td class="field"><%= t 'email' %>:</td><td class="value"><%=h @user.email -%></td>
+    <td class="field"><%= t 'users.users.timezone' %>:</td><td class="value"><%=h @user.time_zone -%></td>
   </tr>
   <tr>
-    <td class="field">Last login:</td><td class="value"><%= nice_date @user.last_login_at unless @user.last_login_at.nil? -%></td>
-    <td class="field">Last login IP:</td><td class="value"><%=h @user.last_login_ip -%></td>
+    <td class="field"><%= t 'users.users.last_login' %>:</td><td class="value"><%= nice_date @user.last_login_at unless @user.last_login_at.nil? -%></td>
+    <td class="field"><%= t 'users.users.last_login_ip' %>:</td><td class="value"><%=h @user.last_login_ip -%></td>
   </tr>
   <% unless @user.enabled? -%>
   <tr>
-    <td class="field">Disabled at:</td><td class="value"><%= nice_date @user.disabled_at -%></td>
+    <td class="field"><%= t 'users.users.disabled_at' %>:</td><td class="value"><%= nice_date @user.disabled_at -%></td>
     <td></td><td></td>
   </tr>
   <% end -%>
 </table>
 
 <% unless @recently_assigned_to.empty? -%>
-  <h3 class="toggle" id="assigned-to-toggle">Recently Assigned Tickets</h3>
+  <h3 class="toggle" id="assigned-to-toggle"><%= t '.recently_assigned_tickets' %></h3>
   <div id="assigned-to-listing">
   <table class="listing" cellspacing="0">
   <thead>
     <tr class="header">
-      <th>Ticket #</th>
-      <th>Title</th>
-      <th>Group</th>
-      <th>Status</th>
-      <th>Contact</th>
-      <th>Last Activity</th>
+      <th><%= t 'tickets.ticket_number' %></th>
+      <th><%= t 'tickets.title' %></th>
+      <th><%= t 'tickets.group' %></th>
+      <th><%= t 'tickets.status' %></th>
+      <th><%= t 'tickets.contact' %></th>
+      <th><%= t 'tickets.last_activity' %></th>
     </tr>
   </thead>
   <tbody>
@@ -66,7 +66,7 @@
       <td><%= ticket.group.name %></td>
       <td><%= ticket.status.name %></td>
       <td><%= link_to ticket.contact.full_name, contact_path(ticket.contact.id) -%></td>
-      <td><%= time_ago_in_words ticket.updated_at %> ago</td>
+      <td><%= time_ago_in_words ticket.updated_at %></td>
     </tr>
     <% end %>
   </tbody>
@@ -75,13 +75,13 @@
 <% end -%>
 
 <% if (@current_user.id == @user.id or @current_user.admin?) and !@user.alerts.empty? -%>
-  <h3 class="toggle" id="alerts-toggle">My Ticket Alerts</h3>
+  <h3 class="toggle" id="alerts-toggle"><%= t '.my_ticket_alerts' %></h3>
   <div id="alert-list">
     <ul>
       <% @user.alerts.each do |alert| -%>
       <li>
-        <strong><%= link_to "Ticket ##{alert.ticket_id}", ticket_path(alert.ticket_id) -%></strong> added on <%= nice_date alert.created_at unless alert.created_at.nil? -%>
-        <span><%= link_to 'Delete', { :action=> 'destroy', :controller => 'alerts', :id => alert.id }, :method => :delete, :confirm => "Really delete alert for ticket ##{alert.ticket_id}?" -%></span>
+        <strong><%= link_to t( 'tickets.ticket_x', :number => alert.ticket.id ), ticket_path(alert.ticket_id) -%></strong> <%= t '.added_on' %> <%= nice_date alert.created_at unless alert.created_at.nil? -%>
+        <span><%= link_to t( 'delete' ), { :action=> 'destroy', :controller => 'alerts', :id => alert.id }, :method => :delete, :confirm => t( '.really_delete_alert_for_ticket_x', :number => alert.ticket.id ) -%></span>
       </li>
       <% end -%>
     </ul>

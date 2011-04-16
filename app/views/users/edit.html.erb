@@ -1,9 +1,9 @@
-<h2>Edit <%= @user.username -%></h2>
+<h2><%= t 'edit' %> <%= @user.username -%></h2>
  
 <% form_for @user do |f| %>
   <%= f.error_messages %>
   <dl>
     <%= render :partial => "form", :object => f %>
-    <dd><%= f.submit "Update", :class => "button" -%>&nbsp;&nbsp;<%= link_to 'Cancel', user_path %></dd>
+    <dd><%= f.submit t( 'button.update' ), :class => "button" -%>&nbsp;&nbsp;<%= link_to t( 'cancel' ), user_path %></dd>
   </dl>
 <% end %>

@@ -32,4 +32,9 @@ module ApplicationHelper
     img_url = root_url + "images/avatar.gif"
     image_tag user.gravatar(50, img_url), :alt => "", :class => "profile-avatar"
   end
+
+  def available_locales
+    [ [ 'English', 'en' ], [ 'Español', 'es' ] ]
+  end
+
 end
