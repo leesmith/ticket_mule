@@ -1,0 +1,29 @@
+en:
+  contacts:
+    index:
+      contacts: 'Contacts'
+    contacts:
+      name: 'Name'
+      affiliation: 'Affiliation'
+      disabled_at: 'Disabled at'
+    new:
+      new_contact: 'New Contact'
+    form:
+      first_name: 'First Name'
+      last_name: 'Last Name'
+      mobile_phone: 'Mobile Phone'
+      office_phone: 'Office Phone'
+      affiliation: 'Affiliation'
+      notes: 'Notes'
+    show:
+      edit: 'Editar'
+      edit_contact: 'Edit Contact'
+      enable_contact: 'Enable Contact'
+      disable_contact: 'Disable Contact'
+      really_enable_contact_x: 'Really enable contact %{contact}?'
+      really_disable_contact_x: 'Really disable contact %{contact}?'
+    edit:
+      editing_x_contact: 'Editing %{contact}'
+    x_contacts_found:
+      one: '1 contact found'
+      other: '%{count} contacts found'

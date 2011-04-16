@@ -1,0 +1,13 @@
+en:
+  admin:
+    index:
+      groups: 'Groups'
+      statuses: 'Statuses'
+      priorities: 'Priorities'
+      users: 'Users'
+      really_disable_group: 'Really disable %{group} group?'
+      really_enable_group: 'Really enable %{group} group?'
+      really_disable_status: 'Really disable %{status} status?'
+      really_enable_status: 'Really enable %{status} status?'
+      really_disable_priority: 'Really disable %{priority} priority?'
+      really_enable_priority: 'Really enable %{priority} priority?'

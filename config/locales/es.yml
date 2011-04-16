@@ -1,0 +1,97 @@
+es:
+  ticketmule: 'TicketMule'
+  signed_in_as: 'Ingresaste como'
+  sign_out: 'Salir'
+  sign_in: 'Ingresar'
+  remember_me: 'Recordarme'
+  forgot_password: '¿Olvidaste tu contraseña?'
+  reset_password: 'Recuperar contraseña'
+  reset_instructions: 'Ingresa a continuación tu correo electrónico y te enviaremos instrucciones para recuperar tu contraseña.'
+  change_password: 'Cambiar contraseña'
+  change_my_password: 'Cambiar mi contraseña'
+  name: 'Nombre'
+  username: 'Usuario'
+  password: 'Constraseña'
+  confirm_password: 'Confirmar contraseña'
+  email: 'Correo'
+  confirm_email: 'Confirmar Correo'
+  confirm_sign_out: '¿Seguro que quieres salir?'
+  powered_by: 'Impulsado por'
+  jump_to_ticket: 'Ir a un Ticket'
+  enter_ticket_no: 'Ingresa un número de Ticket:'
+  cancel: 'Cancelar'
+  from: 'Desde'
+  to: 'Hasta'
+  enable: 'Habilitar'
+  enabled: 'Habilitado'
+  disabled: 'Deshabilitado'
+  disable: 'Deshabilitar'
+  edit: 'Editar'
+  delete: 'Borrar'
+  back: 'Regresar'
+  created_at: 'Creado en'
+  updated_at: 'Actualizado en'
+
+  # Flash messages
+  welcome_on_login: '¡Bienvenido %{username}!'
+  login_details: 'La última vez que entraste fué <strong>%{timestamp}</strong> desde <strong>%{ip}</strong>'
+  locked_out: '¡Usuario bloqueado: máximo número de intentos fallidos excedidos!'
+  invalid_signin: '¡Intento de ingreso fallido! Por favor, intente nuevamente.'
+  logout: '¡Ha salido correctamente!'
+  login_required: '¡Debes iniciar sesión para acceder a esta página!'
+  logout_required: '¡Debes terminar tu sesión para acceder a esta página!'
+  unauthorized_access: '¡Acceso no autorizado!'
+
+  # Buttons
+  button:
+    go: 'Ir'
+    create: 'Crear'
+    submit: 'Enviar'
+    update: 'Actualizar'
+    sign_up: 'Registrarse'
+    new_ticket: 'Nuevo Ticket'
+    new_contact: 'Nuevo Contacto'
+    add_group: 'Agregar Grupo'
+    add_status: 'Agregar Estado'
+    add_priority: 'Agregar Prioridad' 
+    add_user: 'Agregar Usuario'
+    add_comment: 'Agregar Comentario'
+    add_attachment: 'Adjuntar'
+
+  # Main tab menu
+  menu:
+    dashboard: 'Dashboard'
+    tickets: 'Tickets'
+    users: 'Usuarios'
+    contacts: 'Contactos'
+    admin: 'Admin'
+
+  # Datetime
+  datetime:
+    distance_in_words:
+      less_than_x_seconds:
+        one: 'Ahora mismo'
+        other: 'Hace menos de %{count} segundos'
+      half_a_minute: 'Hace medio minuto'
+      less_than_x_minutes:
+        one: 'Hace menos de un minuto'
+        other: 'Hace %{count} minutos'
+      x_minutes:
+        one: 'Hace un minuto'
+        other: 'Hace %{count} minutos'
+      about_x_hours:
+        one: 'Hace más o menos una hora'
+        other: 'Hace más o menos %{count} horas'
+      x_days:
+        one: 'Hace un día'
+        other: 'Hace %{count} días'
+      about_x_months:
+        one: 'Hace más o menos un mes'
+        other: 'Hace más o menos %{count} meses'
+      x_months:
+        one: 'Hace un mes'
+        other: 'Hace %{count} meses'
+      about_x_years:
+        one: 'Hace más o menos un año'
+        other: 'Hace más o menos %{count} años'
+      over_x_years: 'Hace más de %{count} años'

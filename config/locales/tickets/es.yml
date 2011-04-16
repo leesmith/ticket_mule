@@ -1,0 +1,52 @@
+es:
+  tickets:
+    index:
+      tickets: 'Tickets'
+      no_tickets_found: 'No se encontraron tickets'
+    ticket_filter:
+      filter_tickets: 'Filtrar Tickets'
+      custom_filter: 'Filtro personalizado...'
+    tickets_per_page:
+      tickets_per_page: 'Tickets por página'
+    new:
+      new_ticket: 'Nuevo ticket'
+    show:
+      pdf: 'Pdf'
+      add_alert: 'Agregar Alerta'
+      add_ticket_alert: 'Agregar Alerta Al Ticket'
+      add_comment: 'Agregar Comentario'
+      add_attachment: 'Adjuntar'
+      really_add_alert: '¿Está seguro de querer agregar alerta al ticket #%{number}?'
+      remove_alert: 'Remover Alerta'
+      really_remove_alert: '¿Está seguro de querer remover alerta del ticket #%{number}?'
+      remove_ticket_alert: 'Remover Alerta Del Ticket'
+      really_delete_ticket: '¿Está seguro que desea borrar el ticket %{number} y todos los datos relacionados a éste?'
+      delete_ticket: 'Borrar Ticket'
+      created_by: 'Creado Por'
+      close_ticket_with_comment: '¿Cerrar el ticket con este comentario?'
+      attachments: 'Datos Adjuntos'
+      limit_x_megabytes: 'Máximo %{amount} megabytes'
+      edit_ticket: 'Editar Ticket'
+      download_pdf: 'Descargar Pdf'
+    edit:
+      editing_ticket: 'Editando Ticket #%{number}'
+    ticket_number: '# Ticket'
+    title: 'Título'
+    group: 'Grupo'
+    status: 'Estado'
+    owner: 'Dueño'
+    contact: 'Contacto'
+    last_activity: 'Última Actividad'
+    closed_at: 'Cerrado En'
+    priority: 'Prioridad'
+    contact: 'Contacto'
+    priority: 'Prioridad'
+    details: 'Detalles'
+    all_closed_tickets: 'Todos Los Tickets Cerrados'
+    all_active_tickets: 'Todos Los Tickets Activos'
+    my_closed_tickets: 'Mis Tickets Cerrados'
+    my_open_tickets: 'Mis Tickets Abiertos'
+    ticket_x: 'Ticket #%{number}'
+    x_tickets_found:
+      one: '1 ticket encontrado'
+      other: '%{count} tickets encontrados'

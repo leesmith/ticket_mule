@@ -7,16 +7,30 @@ en:
   forgot_password: 'Forgot your password?'
   reset_password: 'Reset Password'
   reset_instructions: 'Enter your email address below and instructions to reset your password will be emailed to you.'
+  change_password: 'Change Password'
   change_my_password: 'Change My Password'
+  name: 'Name'
   username: 'Username'
   password: 'Password'
   confirm_password: 'Confirm password'
   email: 'Email'
+  confirm_email: 'Confirm Email'
   confirm_sign_out: 'Really sign out?'
   powered_by: 'Powered by'
   jump_to_ticket: 'Jump to Ticket'
   enter_ticket_no: 'Enter a ticket number:'
   cancel: 'Cancel'
+  from: 'From'
+  to: 'To'
+  enable: 'Enable'
+  enabled: 'Enabled'
+  disabled: 'Disabled'
+  disable: 'Disable'
+  edit: 'Edit'
+  delete: 'Delete'
+  back: 'Back'
+  created_at: 'Created at'
+  updated_at: 'Updated at'
 
   # Flash messages
   welcome_on_login: 'Welcome %{username}!'
@@ -24,12 +38,25 @@ en:
   locked_out: 'User is locked: exceeded failed sign in limit!'
   invalid_signin: 'Invalid sign in attempt! Please try again.'
   logout: 'Logout successful!'
+  login_required: 'You must be logged in to access this page!'
+  logout_required: 'You must be logged out to access this page!'
+  unauthorized_access: 'Unauthorized access!'
 
   # Buttons
   button:
     go: 'Go'
+    create: 'Create'
     submit: 'Submit'
     update: 'Update'
+    sign_up: 'Sign Up'
+    new_ticket: 'New Ticket'
+    new_contact: 'New Contact'
+    add_group: 'Add Group'
+    add_status: 'Add Status'
+    add_priority: 'Add Priority'
+    add_user: 'Add User'
+    add_comment: 'Add Comment'
+    add_attacahment: 'Add Attachment'
 
   # Main tab menu
   menu:
@@ -39,11 +66,32 @@ en:
     contacts: 'Contacts'
     admin: 'Admin'
 
-  # Dashboard views
-  dashboard:
-    index:
-      active_tickets: 'Active Tickets' 
-      recently_closed_tickets: 'Recently Closed Tickets'
-      timeline: 'Timeline'
-      opened_tickets: 'Opened Tickets'
-      closed_tickets: 'Closed Tickets'
+  # Datetime
+  datetime:
+    distance_in_words:
+      less_than_x_seconds:
+        one: 'Right now'
+        other: 'Less than %{count} seconds'
+      half_a_minute: 'Half a minute'
+      less_than_x_minutes:
+        one: 'Less than a minute'
+        other: 'Less than %{count} minutes'
+      x_minutes:
+        one: 'A minute ago'
+        other: '%{count} minutes ago'
+      about_x_hours:
+        one: 'About one hour'
+        other: 'About %{count} hours'
+      x_days:
+        one: 'One day ago'
+        other: '%{count} days ago'
+      about_x_months:
+        one: 'About one month'
+        other: 'About %{count} months'
+      x_months:
+        one: 'One month ago'
+        other: '%{count} months ago'
+      about_x_years:
+        one: 'About a year'
+        other: 'About %{count} years'
+      over_x_years: 'Over %{count} years'

@@ -1,0 +1,30 @@
+es:
+  users:
+    index:
+      users: 'Usuarios'
+    users:
+      first_name: 'Nombre'
+      last_name: 'Apellido'
+      timezone: 'Zona Horaria'
+      language: 'Idioma'
+      last_login: 'Última Sesión'
+      last_login_ip: 'IP Última Sesión'
+      disabled_at: 'Deshabilitado en'
+    show:
+      edit_user: 'Editar Usuario'
+      enable_user: 'Habilitar Usuario'
+      disable_user: 'Deshabilitar Usuario'
+      unlock: 'Desbloquear'
+      unlock_user: 'Desbloquear Usuario'
+      really_enable_user_x: '¿Está seguro que desea habilitar a %{user}?'
+      really_disable_user_x: '¿Está seguro que desea deshabilitar a %{user}?'
+      really_unlock_user_x: '¿Está segunro que desea desbloquear a %w{user}?'
+      recently_assigned_tickets: 'Tickets asignados recientemente'
+      really_delete_alert_for_ticket_x: '¿Está seguro que desea borrar la alerta para el ticket #%{number}?'
+      my_ticket_alerts: 'Mis alertas de tickets'
+      added_on: 'Agregado el'
+    new:
+      sign_up: 'Registro'
+    x_users_found:
+      one: '1 usuario encontrado'
+      other: '%{count} usuarios encontrados'

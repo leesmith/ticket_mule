@@ -1,0 +1,29 @@
+es:
+  contacts:
+    index:
+      contacts: 'Contactos'
+    contacts:
+      name: 'Nombre'
+      affiliation: 'Afiliación'
+      disabled_at: 'Deshabilitado en'
+    new:
+      new_contact: 'Nuevo Contacto'
+    form:
+      first_name: 'Nombre'
+      last_name: 'Apellido'
+      mobile_phone: 'Celular'
+      office_phone: 'Oficina'
+      affiliation: 'Afiliación'
+      notes: 'Notas'
+    show:
+      edit: 'Editar'
+      edit_contact: 'Editar Contacto'
+      enable_contact: 'Habilitar Contacto'
+      disable_contact: 'Deshabilitar Contacto'
+      really_enable_contact_x: '¿Está seguro que desea habilitar contacto %{contact}?'
+      really_disable_contact_x: '¿Está seguro que desea deshabilitar contacto %{contact}?'
+    edit:
+      editing_x_contact: 'Editando %{contact}'
+    x_contacts_found:
+      one: '1 contacto encontrado'
+      other: '%{count} contactos encontrados'

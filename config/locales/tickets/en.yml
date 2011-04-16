@@ -1,0 +1,52 @@
+en:
+  tickets:
+    index:
+      tickets: 'Tickets'
+      no_tickets_found: 'No tickets found'
+    ticket_filter:
+      filter_tickets: 'Filter Tickets'
+      custom_filter: 'Custom Filter...'
+    tickets_per_page:
+      tickets_per_page: 'Tickets per page'
+    new:
+      new_ticket: 'New ticket'
+    show:
+      pdf: 'Pdf'
+      add_alert: 'Add Alert'
+      add_ticket_alert: 'Add Alert To Ticket'
+      add_comment: 'Add Comment'
+      add_attachment: 'Add Attachment'
+      really_add_alert: 'Really add alert for ticket #%{number}?'
+      remove_alert: 'Remove Alert'
+      really_remove_alert: 'Really remove alert for ticket #%{number}?'
+      remove_ticket_alert: 'Remove Alert'
+      really_delete_ticket: 'Really delete ticket #%{number} and all its associated data?'
+      delete_ticket: 'Delete Ticket'
+      created_by: 'Created By'
+      close_ticket_with_comment: 'Close ticket with this comment?'
+      attachments: 'Attachments'
+      limit_x_megabytes: 'Limit %{amount} megabytes'
+      edit_ticket: 'Edit Ticket'
+      download_pdf: 'Download Pdf'
+    edit:
+      editing_ticket: 'Editing Ticket #%{number}'
+    ticket_number: 'Ticket #'
+    title: 'Title'
+    group: 'Group'
+    status: 'Status'
+    owner: 'Owner'
+    contact: 'Contact'
+    last_activity: 'Last Activity'
+    closed_at: 'Closed At'
+    priority: 'Priority'
+    contact: 'Contact'
+    priority: 'Priority'
+    details: 'Details'
+    all_closed_tickets: 'All Closed Tickets'
+    all_active_tickets: 'All Active Tickets'
+    my_closed_tickets: 'My Closed Tickets'
+    my_open_tickets: 'My Open Tickets'
+    ticket_x: 'Ticket #%{number}'
+    x_tickets_found:
+      one: '1 ticket found'
+      other: '%{count} tickets founds'

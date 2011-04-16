@@ -1,0 +1,8 @@
+es:
+  dashboard:
+    index:
+      active_tickets: 'Tickets Activos' 
+      recently_closed_tickets: 'Tickets cerrados recientemente'
+      timeline: 'Línea de tiempo'
+      opened_tickets: 'Tickets Abiertos'
+      closed_tickets: 'Tickets Cerrados'

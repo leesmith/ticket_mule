@@ -1,0 +1,30 @@
+en:
+  users:
+    index:
+      users: 'Users'
+    users:
+      first_name: 'First Name'
+      last_name: 'Last Name'
+      timezone: 'Time Zone'
+      language: 'Language'
+      last_login: 'Last Login'
+      last_login_ip: 'Last Login IP'
+      disabled_at: 'Disabled at'
+    show:
+      edit_user: 'Edit User'
+      enable_user: 'Enable User'
+      disable_user: 'Disable User'
+      unlock: 'Unlock'
+      unlock_user: 'Unblock User'
+      really_enable_user_x: 'Really enable %{user}?'
+      really_disable_user_x: 'Really disable %{user}?'
+      really_unlock_user_x: 'Really unlock %{user}?'
+      recently_assigned_tickets: 'Recently assigned tickets'
+      really_delete_alert_for_ticket_x: 'Really delete alert for ticket #%{number}?'
+      my_ticket_alerts: 'My ticket alerts'
+      added_on: 'Added on'
+    new:
+      sign_up: 'Sign Up'
+    x_users_found:
+      one: '1 user found'
+      other: '%{count} users found'
