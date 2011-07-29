@@ -41,6 +41,16 @@ en:
   login_required: 'You must be logged in to access this page!'
   logout_required: 'You must be logged out to access this page!'
   unauthorized_access: 'Unauthorized access!'
+  group_x_successfully_created: 'Group %{group} was successfully created!'
+  status_x_successfully_created: 'Status %{status} was successfully created!'
+  status_x_successfully_enabled: 'Status %{status} was successfully enabled!'
+  status_x_successfully_disabled: 'Status {status} was successfully disabled!'
+  priority_x_successfully_created: 'Priority %{priority} was successfully created!'
+  priority_x_successfully_enabled: 'Priority %{priority} was successfully enabled!'
+  priority_x_successfully_disabled: 'Prioority %{priority} was sucessfully disabled!'
+  user_x_successfully_created: 'User %{user} successfully created!'
+  group_x_successfully_enabled: 'Group %{group} successfully enabled!'
+  group_x_successfully_disabled: 'Group %{group} successfully disabled!'
 
   # Buttons
   button:

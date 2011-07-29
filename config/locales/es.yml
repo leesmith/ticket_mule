@@ -41,6 +41,16 @@ es:
   login_required: '¡Debes iniciar sesión para acceder a esta página!'
   logout_required: '¡Debes terminar tu sesión para acceder a esta página!'
   unauthorized_access: '¡Acceso no autorizado!'
+  group_x_successfully_created: '¡El grupo %{group} fué creado exitosamente!'
+  status_x_successfully_created: '¡El estado %{status} fué creado exitosamente!'
+  status_x_successfully_enabled: '¡¡El estado %{status} fué habilitado exitosamente!'
+  status_x_successfully_disabled: '¡El estado %{status} fué deshabilitado exitosamente!'
+  priority_x_successfully_created: '¡La prioridad %{priority} fué creada exitosamente!'
+  priority_x_successfully_enabled:  '¡La prioridad %{priority} fué habilitada exitosamente!'
+  priority_x_successfully_disabled: '¡La prioridad %{priority} fué deshabilitada exitosamente!'
+  user_x_successfully_created: '¡El usuario %{user} fué creado existosamente!'
+  group_x_successfully_enabled: '¡El grupo %{group} fué habilitado exitosamente!'
+  group_x_successfully_disabled: '¡El grupo %{group} fué deshabilitado exitosamente!'
 
   # Buttons
   button:
