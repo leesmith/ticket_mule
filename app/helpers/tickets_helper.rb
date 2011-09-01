@@ -41,15 +41,15 @@ module TicketsHelper
   def ticket_filter_links(status_name, user_id=nil)
     if user_id.nil?
       if status_name.downcase == 'closed'
-        content_tag(:li, link_to("All Closed Tickets", tickets_path + "?search[status_id_equals]=#{@closed_status.id}"))
+        content_tag(:li, link_to(t( 'tickets.all_closed_tickets' ), tickets_path + "?search[status_id_equals]=#{@closed_status.id}"))
       else
-        content_tag(:li, link_to("All Active Tickets", tickets_path))
+        content_tag(:li, link_to(t( 'tickets.all_active_tickets' ), tickets_path))
       end
     else
       if status_name.downcase == 'closed'
-        content_tag(:li, link_to("My Closed Tickets", tickets_path + "?search[status_id_equals]=#{@closed_status.id}&search[owned_by_equals]=#{user_id}"))
+        content_tag(:li, link_to(t( 'tickets.my_closed_tickets' ), tickets_path + "?search[status_id_equals]=#{@closed_status.id}&search[owned_by_equals]=#{user_id}"))
       else
-        content_tag(:li, link_to("My Open Tickets", tickets_path + "?search[status_id_equals]=#{@open_status.id}&search[owned_by_equals]=#{user_id}"))
+        content_tag(:li, link_to(t( 'tickets.my_open_tickets' ), tickets_path + "?search[status_id_equals]=#{@open_status.id}&search[owned_by_equals]=#{user_id}"))
       end
     end
   end

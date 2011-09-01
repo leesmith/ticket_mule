@@ -1,27 +1,30 @@
-<dt><label for="user_username">Username</label></dt>
+<dt><label for="user_username"><%= t 'username' %></label></dt>
 <dd><%= form.text_field :username, :class => "textfield" %></dd>
 
-<dt><label for="user_first_name">First name</label></dt>
+<dt><label for="user_first_name"><%= t 'users.users.first_name' %></label></dt>
 <dd><%= form.text_field :first_name, :class => "textfield" -%></dd>
 
-<dt><label for="user_last_name">Last name</label></dt>
+<dt><label for="user_last_name"><%= t 'users.users.last_name' %></label></dt>
 <dd><%= form.text_field :last_name, :class => "textfield" -%></dd>
 
-<dt><label for="user_time_zone">Time zone</label></dt>
+<dt><label for="user_time_zone"><%= t 'users.users.language' %></label></dt>
+<dd><%= form.select :language, available_locales, {}, :class => "selectbox" %></dd>
+
+<dt><label for="user_time_zone"><%= t 'users.users.timezone' %></label></dt>
 <dd><%= form.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, { :default => "Central Time (US & Canada)" }, { :class => "selectbox" } %></dd>
 
-<dt><label for="user_email">Email</label></dt>
+<dt><label for="user_email"><%= t 'email' %></label></dt>
 <dd><%= form.text_field :email, :class => "textfield" -%></dd>
 
-<dt><label for="user_email_confirmation">Confirm Email</label></dt>
+<dt><label for="user_email_confirmation"><%= t 'confirm_email' %></label></dt>
 <dd><%= form.text_field :email_confirmation, :class => "textfield" -%></dd>
 
 <% if form.object.new_record? %>
-  <dt><label for="user_password">Password</label></dt>
+  <dt><label for="user_password"><%= t 'password' %></label></dt>
 <% else %>
-  <dt><label for="user_password">Change Password</label></dt>
+  <dt><label for="user_password"><%= t 'change_password' %></label></dt>
 <% end %>
 <dd><%= form.password_field :password, :class => "textfield" %></dd>
 
-<dt><label for="user_password_confirmation">Confirm Password</label></dt>
+<dt><label for="user_password_confirmation"><%= t 'confirm_password' %></label></dt>
 <dd><%= form.password_field :password_confirmation, :class => "textfield" %></dd>

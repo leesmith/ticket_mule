@@ -10,7 +10,7 @@ class AdminController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        flash[:success] = "Group #{@group.name} was successfully created!"
+        flash[:success] = t 'group_x_successfully_created', :group => @group.name
         format.html { redirect_to admin_index_path }
       else
         #set initial tab to display errors...must match tab position in index view
@@ -26,7 +26,7 @@ class AdminController < ApplicationController
 
     respond_to do |format|
       if @status.save
-        flash[:success] = "Status #{@status.name} was successfully created!"
+        flash[:success] = t 'status_x_successfully_created', :status => @status.name
         format.html { redirect_to admin_index_path }
       else
         #set initial tab to display errors...must match tab position in index view
@@ -42,7 +42,7 @@ class AdminController < ApplicationController
 
     respond_to do |format|
       if @priority.save
-        flash[:success] = "Priority #{@priority.name} was successfully created!"
+        flash[:success] = t 'priority_x_successfully_created', :priority => @priority.name
         format.html { redirect_to admin_index_path }
       else
         #set initial tab to display errors...must match tab position in index view
@@ -57,7 +57,7 @@ class AdminController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:success] = "User #{@user.username} was successfully created!"
+        flash[:success] = t 'user_x_successfully_created', :user => @user.username
         format.html { redirect_to admin_index_path }
       else
         #set initial tab to display errors...must match tab position in index view
@@ -72,10 +72,10 @@ class AdminController < ApplicationController
 
     if @group.enabled?
       @group.disabled_at = DateTime.now
-      flash_msg = "Group #{@group.name} was successfully disabled!"
+      flash_msg = t 'group_x_successfully_disabled', :group => @group.name
     else
       @group.disabled_at = nil
-      flash_msg = "Group #{@group.name} was successfully enabled!"
+      flash_msg = t 'group_x_successfully_enabled', :group => @group.name
     end
 
     respond_to do |format|
@@ -95,10 +95,10 @@ class AdminController < ApplicationController
 
     if @status.enabled?
       @status.disabled_at = DateTime.now
-      flash_msg = "Status #{@status.name} was successfully disabled!"
+      flash_msg = t 'status_x_successfully_disabled', :status => @status.name
     else
       @status.disabled_at = nil
-      flash_msg = "Status #{@status.name} was successfully enabled!"
+      flash_msg = t 'status_x_successfully_enabled', :status => @status.name
     end
 
     respond_to do |format|
@@ -118,10 +118,10 @@ class AdminController < ApplicationController
 
     if @priority.enabled?
       @priority.disabled_at = DateTime.now
-      flash_msg = "Priority #{@priority.name} was successfully disabled!"
+      flash_msg = t 'priotity_x_successfully_disabled', :priority => @priority.name
     else
       @priority.disabled_at = nil
-      flash_msg = "Priority #{@priority.name} was successfully enabled!"
+      flash_msg = t 'priority_x_successfully_enabled', :priority => @priority.name
     end
 
     respond_to do |format|

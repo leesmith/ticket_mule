@@ -1,0 +1,8 @@
+en:
+  dashboard:
+    index:
+      active_tickets: 'Active Tickets' 
+      recently_closed_tickets: 'Recently Closed Tickets'
+      timeline: 'Timeline'
+      opened_tickets: 'Opened Tickets'
+      closed_tickets: 'Closed Tickets'

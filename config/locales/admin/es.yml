@@ -1,0 +1,13 @@
+es:
+  admin:
+    index:
+      groups: 'Grupos'
+      statuses: 'Estados'
+      priorities: 'Prioridades'
+      users: 'Usuarios'
+      really_disable_group: '¿Está seguro de querer deshabilitar el grupo %{group}?'
+      really_enable_group: '¿Está seguro de querer habilitar el grupo %{group}?'
+      really_disable_status: '¿Está seguro de querer deshabilitar el estado %{status}?'
+      really_enable_status: '¿Está seguro de querer habilitar el estado %{status}?'
+      really_disable_priority: '¿Está seguro de querer deshabilitar la prioridad %{priority}?'
+      really_enable_priority: '¿Está seguro de querer habilitar la prioridad %{priority}?'

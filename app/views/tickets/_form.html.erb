@@ -1,34 +1,29 @@
-<%= error_messages_for :ticket -%>
+<%= error_messages_for :ticket %>
 
-<% form_for setup_ticket(@ticket), :html => { :multipart => true } do |f| -%>
-<dl>
-<dt><label for="ticket_title">Title</label></dt>
-<dd><%= f.text_field :title, {:style => "width: 440px", :class => "textfield" } -%></dd>
+<% form_for setup_ticket(@ticket), :html => { :multipart => true } do |f| %>
+  <dl>
+    <dt><label for="ticket_title"><%= t 'tickets.title' %></label></dt>
+    <dd><%= f.text_field :title, {:style => "width: 440px", :class => "textfield" } %></dd>
 
-<dt><label for="ticket_contact_id">Contact</label></dt>
-<%#= select 'ticket', 'contact_id', Contact.find(:all).collect {|c| [ c.full_name, c.id ] }, {}, { :style => "width: 130px", :class => "selectbox" } -%>
-<dd><%= f.collection_select :contact_id, @contact_select, :id, :full_name, { :include_blank => true }, { :class => "selectbox" } -%></dd>
+    <dt><label for="ticket_contact_id"><%= t 'tickets.contact' %></label></dt>
+    <dd><%= f.collection_select :contact_id, @contact_select, :id, :full_name, { :include_blank => true }, { :class => "selectbox" } %></dd>
 
-<dt><label for="ticket_group_id">Group</label></dt>
-<%#= select 'ticket','group_id',Group.find(:all).collect {|g| [ g.group, g.id ] }, {}, :class => "selectbox" -%>
-<dd><%= f.collection_select :group_id, @group_select, :id, :name, { :include_blank => true }, { :class => "selectbox" } -%></dd>
+    <dt><label for="ticket_group_id"><%= t 'tickets.group' %></label></dt>
+    <dd><%= f.collection_select :group_id, @group_select, :id, :name, { :include_blank => true }, { :class => "selectbox" } %></dd>
 
-<dt><label for="ticket_status_id">Status</label></dt>
-<%#= select 'ticket','status_id',Status.find(:all).collect {|s| [ s.status, s.id ] }, {}, { :style => "width: 130px", :class => "selectbox" } -%>
-<dd><%= f.collection_select :status_id, @status_select, :id, :name, { :include_blank => true }, { :class => "selectbox" } -%></dd>
+    <dt><label for="ticket_status_id"><%= t 'tickets.status' %></label></dt>
+    <dd><%= f.collection_select :status_id, @status_select, :id, :name, { :include_blank => true }, { :class => "selectbox" } %></dd>
 
-<dt><label for="ticket_priority_id">Priority</label></dt>
-<%#= select 'ticket','priority_id',Priority.find(:all).collect {|p| [ p.priority, p.id ] }, {}, { :style => "width: 130px", :class => "selectbox" } -%>
-<dd><%= f.collection_select :priority_id, @priority_select, :id, :name, { :include_blank => true }, { :class => "selectbox" } -%></dd>
+    <dt><label for="ticket_priority_id"><%= t 'tickets.priority' %></label></dt>
+    <dd><%= f.collection_select :priority_id, @priority_select, :id, :name, { :include_blank => true }, { :class => "selectbox" } %></dd>
 
-<dt><label for="ticket_owned_by">Owner</label></dt>
-<%#= select 'ticket','owned_by',User.find(:all).collect {|u| [ u.username, u.id ] }, { :include_blank => true }, { :style => "width: 130px", :class => "selectbox" } -%>
-<dd><%= f.collection_select :owned_by, @owner_select, :id, :username, { :include_blank => true }, { :class => "selectbox" } -%></dd>
+    <dt><label for="ticket_owned_by"><%= t 'tickets.owner' %></label></dt>
+    <dd><%= f.collection_select :owned_by, @owner_select, :id, :username, { :include_blank => true }, { :class => "selectbox" } %></dd>
 
-<dt><label for="ticket_details">Details</label></dt>
-<dd><%= f.text_area :details, :size => "70x6", :class => "textarea" -%></dd>
+    <dt><label for="ticket_details"><%= t 'tickets.details' %></label></dt>
+    <dd><%= f.text_area :details, :size => "70x6", :class => "textarea" %></dd>
 
-<dd><%= f.submit button_name, :class => "button" -%>&nbsp;&nbsp;<%= link_to 'Cancel', @ticket -%></dd>
-</dl>
+    <dd><%= f.submit button_name, :class => "button" %>&nbsp;&nbsp;<%= link_to t( 'cancel' ), @ticket %></dd>
+  </dl>
 
-<% end -%>
+<% end %>

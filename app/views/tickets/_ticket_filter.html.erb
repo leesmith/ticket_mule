@@ -1,56 +1,56 @@
-<h3>Filter Tickets</h3>
+<h3><%= t '.filter_tickets' %></h3>
 
 <ul id="filter-links">
-  <%= ticket_filter_links 'open', @current_user.id -%>
-  <%= ticket_filter_links 'closed', @current_user.id -%>
-  <%= ticket_filter_links 'open' -%>
-  <%= ticket_filter_links 'closed' -%>
-  <li><%= link_to_function "Custom Filter...", "$('#ticket-filter').toggle();" -%></li>
+  <%= ticket_filter_links 'open', @current_user.id %>
+  <%= ticket_filter_links 'closed', @current_user.id %>
+  <%= ticket_filter_links 'open' %>
+  <%= ticket_filter_links 'closed' %>
+  <li><%= link_to_function t( '.custom_filter' ), "$('#ticket-filter').toggle();" %></li>
 </ul>
 
 <div class="right-container">
 <% form_for @search, :html => { :id => 'ticket-filter' } do |f| %>
   <p>
-  <%= f.label :group_id_equals, "Group" %>
+  <%= f.label :group_id_equals, t( 'tickets.group' ) %>
   <%= f.collection_select :group_id_equals, Group.all(:order => "name"), :id, :name, { :include_blank => true}, { :class => "selectbox" } %>
   </p>
 
   <p>
-  <%= f.label :contact_id_equals, "Contact" %>
+  <%= f.label :contact_id_equals, t( 'tickets.contact' ) %>
   <%= f.collection_select :contact_id_equals, Contact.all(:order => "last_name"), :id, :full_name, { :include_blank => true}, { :class => "selectbox" } %>
   </p>
 
   <p>
-  <%= f.label :status_id_equals, "Status" %>
+  <%= f.label :status_id_equals, t( 'tickets.status' ) %>
   <%= f.collection_select :status_id_equals, Status.all, :id, :name, { :include_blank => true}, { :class => "selectbox" } %>
   </p>
 
   <p>
-  <%= f.label :priority_id_equals, "Priority" %>
+  <%= f.label :priority_id_equals, t( 'tickets.priority' ) %>
   <%= f.collection_select :priority_id_equals, Priority.all, :id, :name, { :include_blank => true}, { :class => "selectbox" } %>
   </p>
 
   <p>
-  <%= f.label :owned_by_equals, "Owner" %>
+  <%= f.label :owned_by_equals, t( 'tickets.owner' ) %>
   <%= f.collection_select :owned_by_equals, User.all(:order => "username"), :id, :username, { :include_blank => true }, { :class => "selectbox" } %>
   </p>
 
   <p>
-  <label for="filter-start">From</label>
-  <%= f.text_field :created_at_gte, :size => 11, :id => 'filter-start', :class => 'textfield' -%>
+  <label for="filter-start"><%= t 'from' %></label>
+  <%= f.text_field :created_at_gte, :size => 11, :id => 'filter-start', :class => 'textfield' %>
   </p>
 
   <p>
-  <label for="filter-end">To</label>
-  <%= f.text_field :created_at_lt, :size => 11, :id => 'filter-end', :class => 'textfield' -%>
+  <label for="filter-end"><%= t 'to' %></label>
+  <%= f.text_field :created_at_lt, :size => 11, :id => 'filter-end', :class => 'textfield' %>
   </p>
 
-  <p><%= f.submit "Submit", :class => "button" %></p>
+  <p><%= f.submit t( 'button.submit' ), :class => "button" %></p>
 <% end %>
 </div>
 
-<% content_for :head do -%>
-  <%= javascript_include_tag 'datepicker.min' -%>
+<% content_for :head do %>
+  <%= javascript_include_tag 'datepicker.min' %>
   <script type="text/javascript">
     $(function() {
     $('#filter-start').DatePicker({
@@ -91,4 +91,4 @@
     });
     });
   </script>
-<% end -%>
+<% end %>
