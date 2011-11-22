@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  database: ticket_mule_development
+  pool: 5
+  username: 
+  password: 
+  min_messages: warning
+
+test:
+  adapter: postgresql
+  database: ticket_mule_test
+  pool: 5
+  username: lsmith
+  password: 
+  min_messages: warning

@@ -1,75 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>  
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <meta name="description" content="TicketMule support ticket tracking" />
-  <title><%= controller.controller_name.capitalize %> &#8250; <%=t 'ticketmule' -%></title>
-  <%= stylesheet_link_tag 'screen', :media => "screen, projection" %>
-  <%= stylesheet_link_tag 'print', :media => "print" %>
-  <%= javascript_include_tag 'jquery.min', 'application', :cache => true -%>
-  <%= yield :head -%>
-  <link rel="shortcut icon" type="image/ico" href="<%=app_root%>/favicon.ico" />
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TicketMule</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
-
 <body>
-<div id="content">
 
-<div id="header">
-  <div id="inner-header">
-    <h1><%=t 'ticketmule' -%></h1>
-    <p id="status"><%=t 'signed_in_as' -%>&nbsp;<%= link_to @current_user.username, user_path(@current_user.id) -%>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to t(:sign_out), logout_path, :method => :delete, :confirm => t('confirm_sign_out') -%></p>
-    <div id="nav">
-      <!--
-      <ul id="nav-left">
-        <li><a href="/dashboard" tabindex="1" title="Dashboard"><span>Dashboard</span></a></li>
-        <li><a href="/tickets" tabindex="2" title="Tickets"><span>Tickets</span></a></li>
-      </ul>
-      -->
-      <ul id="nav-right">
-        <%= tab_for :dashboard, dashboard_index_path, t('menu.dashboard') %>
-        <%= tab_for :tickets, tickets_path, t('menu.tickets') %>
-        <%= tab_for :contacts, contacts_path, t('menu.contacts') %>
-        <%= tab_for :users, users_path, t('menu.users') %>
-        <% if @current_user.admin? -%>
-          <%= tab_for :admin, admin_index_path, t('menu.admin') %>
-        <% end -%>
-      </ul>
-    </div><!-- end nav -->
-  </div><!-- end inner-header -->
-</div><!-- end header -->
-
-<div id="shadow"></div>
-
-<div id="main">
-  <div id="left-column">
-    <div class="box">
-      <%= show_flash %>
-      <%= yield %>
-    </div>
-  </div><!-- end left-column -->
-  <div id="right-column">
-    <%= yield :button_list -%>
-    <h3><%=t 'jump_to_ticket' -%></h3>
-    <div class="right-container">
-      <form id="jumpbox" action="">
-        <p>
-        <label for="jump_id"><em><%=t 'enter_ticket_no' -%></em></label><br/>
-          <input type="text" id="jump_id" size="8" class="textfield"/>
-          <input type="hidden" id="app_root" value="<%=app_root%>"/>
-          <button class="button"><%=t 'button.go' -%></button>
-        </p>
-      </form>
-    </div>
-    <%= yield :ticket_filter -%>
-  </div><!-- end right-column -->
-</div><!-- end main -->
-
-<br/><br/></div><!-- end content -->
-
-<div id="footer">
-  <p><%=t 'powered_by' -%>&nbsp;<strong><a href="http://www.appogee.net/">TicketMule</a></strong></p>
-</div>
+<%= yield %>
 
 </body>
 </html>
