@@ -1,0 +1,15 @@
+!!!
+%html{lang: I18n.locale}
+  %head
+    %meta{charset: 'utf-8'}
+    %title= t(:app_title)
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+  %body{id: params[:controller].parameterize.dasherize + "-controller"}
+    .topbar
+      .fill
+        .container
+          %h3.brand TicketMule
+    %section
+      = yield

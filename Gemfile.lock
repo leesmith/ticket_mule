@@ -32,6 +32,8 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (1.4.0)
+      sass-rails (~> 3.1.0)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -164,6 +166,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  bootstrap-sass
   capybara
   coffee-rails (~> 3.1.1)
   database_cleaner

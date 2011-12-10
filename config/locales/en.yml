@@ -1,5 +1,7 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  app_title: 'TicketMule'
+  email_or_username: 'Email or Username'
+  password: 'Password'
+  invalid_credentials: 'Invalid credentials! Please try again.'
+  sign_in: 'Sign In'
+  not_authenticated: 'Please sign in before continuing!'

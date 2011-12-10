@@ -1,0 +1,10 @@
+#dashboard-controller {
+  section {
+    width: 940px;
+    margin: 30px auto;
+    padding: 16px;
+    background-color: #fff;
+    @include box-shadow;
+    @include round-corners(4px);
+  }
+}
