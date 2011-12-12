@@ -10,6 +10,9 @@
     .topbar
       .fill
         .container
-          %h3.brand TicketMule
+          %h3.brand
+            = t(:app_title)
+          .nav.secondary-nav
+            = link_to 'Sign out', sign_out_path, confirm: t(:confirm_sign_out)
     %section
       = yield
