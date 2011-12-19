@@ -81,7 +81,6 @@ namespace :fake do
       c.office_phone = Faker::PhoneNumber.phone_number
       c.affiliation = Faker::Company.name
       c.notes = Faker::Lorem.paragraph(sentence_count=5)
-      c.created_at = Time.now
     end
   end
 

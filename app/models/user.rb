@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates_presence_of     :first_name, :last_name
-  validates_confirmation_of :email
+  validates_confirmation_of :email, :on => :create
 
   # Scopes
   named_scope :enabled, :order => 'username', :conditions => { :disabled_at => nil }
