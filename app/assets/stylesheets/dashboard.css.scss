@@ -4,7 +4,7 @@
     margin: 30px auto;
     padding: 16px;
     background-color: #fff;
-    @include box-shadow;
-    @include round-corners(4px);
+    @include box-shadow(0 1px 2px rbga(0,0,0,0.30));
+    @include border-radius(4px);
   }
 }

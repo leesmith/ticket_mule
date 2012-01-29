@@ -10,9 +10,20 @@
     .topbar
       .fill
         .container
-          %h3.brand
-            = t(:app_title)
-          .nav.secondary-nav
-            = link_to 'Sign out', sign_out_path, confirm: t(:confirm_sign_out)
-    %section
-      = yield
+          %h3.brand= t(:app_title)
+          %ul.nav
+            %li{class: active_nav_class(controller.controller_name, 'Dashboard')}
+              = link_to 'Dashboard', root_path
+          %ul.nav.secondary-nav
+            %li
+              /= link_to 'Sign out', destroy_admin_session_path, confirm: 'Really sign out?', method: :delete
+              = link_to t(:sign_out), sign_out_path, confirm: t(:confirm_sign_out), method: :delete
+          .secondary-nav
+            %p.pull-right #{t(:signed_in_as)} #{current_user.email} |
+    .container
+      .content
+        = render partial: 'shared/flash', locals: { flash: flash }
+        = yield
+    .container
+      %footer
+        %p TicketMule &copy; 2009 Lee Smith

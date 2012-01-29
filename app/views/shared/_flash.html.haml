@@ -1,0 +1,4 @@
+- flash.each do |name, msg|
+  %div(class="alert-message #{name} fade in" data-alert='alert')
+    = msg
+    = link_to '×', '#', class: 'close'

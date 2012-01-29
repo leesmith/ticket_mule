@@ -33,6 +33,8 @@ GEM
     bcrypt-ruby (3.0.1)
     bootstrap-sass (1.4.4)
       sass-rails (~> 3.1)
+    bourbon (1.3.6)
+      sass (>= 3.1)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -163,6 +165,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (= 1.4.4)
+  bourbon
   capybara
   coffee-rails (~> 3.2.2)
   database_cleaner

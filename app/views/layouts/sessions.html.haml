@@ -10,7 +10,10 @@
     .topbar
       .fill
         .container
-          %h3.brand
-            = t(:app_title)
-    %section
-      = yield
+          %h3.brand= t(:app_title)
+    .container
+      %section#login
+        = yield
+    .container
+      %footer
+        %p TicketMule &copy; 2009 Lee Smith

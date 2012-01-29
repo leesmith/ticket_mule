@@ -1,7 +1,6 @@
 %h1= t(:sign_in)
 
-- flash.each do |name, msg|
-  %div(class=name)= msg
+= render partial: 'shared/flash', locals: { flash: flash }
 
 = form_tag [:sessions] do
   %div

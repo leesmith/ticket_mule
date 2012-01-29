@@ -1,18 +1,21 @@
 #sessions-controller {
   section form > div {
     padding: 3px;
-    margin: 8px 0;
-    @include round-corners(4px);
+    margin: 9px 0;
   }
-  #user-id, #password { width: 95%; }
-  section {
+  #user-id, #password {
+    width: 340px;
+  }
+  #login {
     width: 360px;
     margin: 110px auto 16px;
     padding: 16px;
     background-color: #fff;
     text-align: center;
-    @include round-corners(6px);
-    @include box-shadow;
+    @include border-radius(8px);
+    @include box-shadow(0 1px 2px rgba(0,0,0,0.35));
   }
-  label { display: none; }
+  label {
+    display: none;
+  }
 }

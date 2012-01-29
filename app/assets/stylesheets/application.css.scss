@@ -4,14 +4,38 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
 */
+@import "bourbon";
 @import "bootstrap";
-@import "mixins.css.scss";
 @import "sessions.css.scss";
 @import "dashboard.css.scss";
 
-body { background: #eee url(image_path('bg.png')); }
+body {
+  background: #eee url(image_path('bg.png'));
+}
 
-.alert, .notice { color: #c00; font-weight: bold; margin-bottom: 16px; }
-.notice { color: #585; }
+.btn {
+  font-weight: bold;
+}
 
-.btn { font-weight: bold; }
+.content {
+  padding: 60px 20px 20px;
+  margin: 0 -20px;
+  background-color: #fff;
+  @include border-radius(0 0 6px 6px);
+  @include box-shadow(0 1px 2px rgba(0,0,0,0.30));
+}
+
+.secondary-nav p {
+  color: #777;
+}
+
+footer {
+  border-top: none;
+  margin-top: 0;
+}
+
+footer p {
+  color: #bbb;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+}
