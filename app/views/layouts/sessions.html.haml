@@ -7,12 +7,12 @@
     = javascript_include_tag 'application'
     = csrf_meta_tag
   %body{id: 'sessions-controller'}
-    .topbar
-      .fill
+    .navbar.navbar-fixed-top
+      .navbar-inner
         .container
           %h3.brand= t(:app_title)
     .container
-      %section#login
+      #login
         = yield
     .container
       %footer

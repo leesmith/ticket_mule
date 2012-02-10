@@ -1,6 +1,7 @@
 en:
   app_title: 'TicketMule'
   email_or_username: 'Email or Username'
+  user_id: 'User Id'
   password: 'Password'
   invalid_credentials: 'Invalid credentials! Please try again.'
   sign_in: 'Sign In'

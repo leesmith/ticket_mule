@@ -4,10 +4,10 @@
 
 = form_tag [:sessions] do
   %div
-    %label{for: 'user-id'} User Id
+    %label{for: 'user-id'}= t(:user_id)
     = text_field_tag :user_id, params[:user_id], id: 'user-id', placeholder: t(:email_or_username), required: true
   %div
-    %label{for: 'password'} Password
+    %label{for: 'password'}= t(:password)
     = password_field_tag :password, nil, id: 'password', placeholder: t(:password), required: true
   %div
     = submit_tag t(:sign_in), class: 'btn', id: 'sign-in'
