@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
 
+  it { should validate_presence_of :last_name }
   it { should validate_presence_of :email }
   it { should validate_presence_of :password }
   it { should validate_presence_of :password_confirmation }
@@ -27,6 +28,18 @@ describe User do
   context 'should allow valid email addresses' do
     it { should allow_value('me@mail.com').for(:email) }
     it { should allow_value('ME@mail.COM').for(:email) }
+  end
+
+  context '#full_name' do
+    it 'returns last_name, first_name' do
+      user = Fabricate.build(:user, last_name: 'Beam', first_name: 'Jim')
+      user.full_name.should == 'Beam, Jim'
+    end
+
+    it 'returns only last_name' do
+      user = Fabricate.build(:user, last_name: 'Daniels', first_name: nil)
+      user.full_name.should == 'Daniels'
+    end
   end
 
   context '.find_by_user_id' do

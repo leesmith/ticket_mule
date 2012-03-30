@@ -30,4 +30,9 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
+
+  if RSpec::Core::Version::STRING >= '3.0.0'
+    warn("\n\nWARNING: RSpec >= v3.0.0 defaults config.treat_symbols_as_metadata_keys_with_true_values to true remove this setting and warning from #{__FILE__}:#{__LINE__ - 1}-#{__LINE__ + 2}\n\n")
+  end
+  config.treat_symbols_as_metadata_keys_with_true_values = true 
 end

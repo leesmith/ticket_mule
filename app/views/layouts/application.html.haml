@@ -12,11 +12,11 @@
         .container
           %h3.brand= t(:app_title)
           %ul.nav
-            %li{class: active_nav_class(controller.controller_name, 'Dashboard')}
-              = link_to 'Dashboard', root_path
+            %li{class: active_nav_class(controller.controller_name, t(:dashboard))}
+              = link_to t(:dashboard), root_path
           %p.navbar-text.pull-right
             #{t(:signed_in_as)} #{current_user.email} &nbsp;|&nbsp;
-            = link_to t(:sign_out), sign_out_path, confirm: t(:confirm_sign_out), method: :delete
+            = link_to t(:sign_out), sign_out_path, confirm: t(:confirm_sign_out), method: :delete, id: 'sign-out'
     .container
       .content
         = render partial: 'shared/flash', locals: { flash: flash }

@@ -10,11 +10,32 @@
 @import "dashboard.css.scss";
 
 body {
-  background: #eee url(image_path('cross_scratches.png'));
+  background: #eee url(image_path('bg.png'));
 }
 
 .btn {
   font-weight: bold;
+}
+
+p.error, .help-inline {
+  color: #b94a48;
+}
+
+.field_with_errors {
+  padding: 0;
+  margin: 0;
+  clear: none;
+  display: inline;
+  input, label, select {
+    color: #b94a48;
+  }
+  input, select, textarea {
+    border-color: #b94a48;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #953b39;
+    box-shadow: 0 0 6px #d59392;
+  }
 }
 
 .content {

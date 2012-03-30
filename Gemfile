@@ -8,8 +8,6 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '3.2.1'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'bootstrap-sass', '~> 2.0.0'
   gem 'coffee-rails', '~> 3.2.2'
@@ -22,7 +20,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'fabrication'
+  gem 'ffaker'
+  gem 'launchy'
+  gem 'populator'
   gem 'rspec-rails'
   gem 'ruby-debug19', require: 'ruby-debug'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
 end

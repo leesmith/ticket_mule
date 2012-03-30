@@ -1,0 +1,31 @@
+%h2= t(:add_ticket)
+
+= form_for ticket do |f|
+  - if ticket.errors.any?
+    %p.error= t(:ticket_error)
+
+  = f.label :title
+  = f.text_field :title
+  = error_message_on(ticket, :title)
+
+  = f.label :priority_id, t(:priority)
+  = f.collection_select :priority_id, priorities, :id, :name, include_blank: true
+  = error_message_on(ticket, :priority_id)
+
+  = f.label :group_id, t:(:group)
+  = f.collection_select :group_id, groups, :id, :name, include_blank: true
+  = error_message_on(ticket, :group_id)
+
+  = f.label :contact_id, t(:contact)
+  = f.collection_select :contact_id, contacts, :id, :full_name, include_blank: true
+  = error_message_on(ticket, :contact_id)
+
+  = f.label :owner_id, t(:owner)
+  = f.collection_select :owner_id, owners, :id, :full_name, include_blank: true
+  = error_message_on(ticket, :owner_id)
+
+  = f.label :details, t(:details)
+  = f.text_area :details, rows: '6'
+  = error_message_on(ticket, :details)
+
+  %p= submit_tag t(:save), class: 'btn'
