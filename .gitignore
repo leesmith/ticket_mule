@@ -16,3 +16,4 @@
 /doc/app
 /log/*.log
 /tmp
+/vendor/bundle

@@ -17,6 +17,7 @@ end
 
 group :development, :test do
   gem 'capybara'
+  gem 'debugger'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'fabrication'
@@ -24,6 +25,5 @@ group :development, :test do
   gem 'launchy'
   gem 'populator'
   gem 'rspec-rails'
-  gem 'ruby-debug19', require: 'ruby-debug'
   gem 'shoulda-matchers'
 end
