@@ -9,6 +9,6 @@ class Ticket < ActiveRecord::Base
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
 
   # Validations
-  validates_presence_of :title, :status_id, :creator_id, message: 'is required'
+  validates_presence_of :title, :status, :group, :priority, :creator, message: 'is required'
 
 end

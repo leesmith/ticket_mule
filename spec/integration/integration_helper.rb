@@ -1,11 +1,16 @@
 require 'spec_helper'
 require 'capybara/rspec'
 
-# Put integration spec helpers inside /spec/integration/support
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+# Support files for integration tests
+Dir[Rails.root.join("spec/integration/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
   config.before :each do
     if Capybara.current_driver == :rack_test
