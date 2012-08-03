@@ -25,5 +25,5 @@ group :development, :test do
   gem 'launchy'
   gem 'populator'
   gem 'rspec-rails'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
 end

@@ -142,10 +142,6 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
-    shoulda (3.1.1)
-      shoulda-context (~> 1.0)
-      shoulda-matchers (~> 1.2)
-    shoulda-context (1.0.0)
     shoulda-matchers (1.2.0)
       activesupport (>= 3.0.0)
     sprockets (2.1.3)
@@ -187,5 +183,5 @@ DEPENDENCIES
   rails
   rspec-rails
   sass-rails (~> 3.2.5)
-  shoulda
+  shoulda-matchers
   uglifier (>= 1.0.3)
