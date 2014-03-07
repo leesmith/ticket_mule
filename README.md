@@ -18,6 +18,16 @@ No frills, general use support ticket tracking.  Easily document and communicate
 * In-line admin controls to delete comments, attachments, and tickets
 * Gravatar integration
 
+## Getting Started
+
+```
+# install gems, create database.yml config & setup the database
+./bin/setup
+
+# run the test suite
+./bin/rake
+```
+
 ## License
 
 Copyright (c) 2014 by J. Lee Smith. All rights reserved.

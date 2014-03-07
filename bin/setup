@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Set up Ruby dependencies
+bundle install --binstubs
+
+# Create database config (edit to your needs)
+cp config/{example.,}database.yml
+
+# Set up database
+bundle exec rake db:setup

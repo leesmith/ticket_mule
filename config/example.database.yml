@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: ticket_mule_development
   pool: 5
-  username: ticket_mule
+  username:
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -48,7 +48,7 @@ test:
   encoding: unicode
   database: ticket_mule_test
   pool: 5
-  username: ticket_mule
+  username:
   password:
 
 production:
@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: ticket_mule_production
   pool: 5
-  username: ticket_mule
+  username:
   password:
