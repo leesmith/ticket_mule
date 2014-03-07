@@ -1,8 +1,0 @@
-<%- unless attachment.id.nil? -%>
-<li>
-  <%= link_to truncate(attachment.name, :length => 60), ticket_attachment_path(ticket.id, attachment.id), :class => attachment.content_type_class -%> <%=attachment.nice_file_size -%> - <em><strong><%= attachment.user.username -%></strong> at <%= nice_date attachment.created_at -%></em>
-  <% if @current_user.admin? -%>
-    <span><%= link_to 'Delete', ticket_attachment_path(ticket.id, attachment.id), :confirm => "Really delete #{attachment.name}?", :method => :delete -%></span>
-  <% end -%>
-</li>
-<%- end -%>
