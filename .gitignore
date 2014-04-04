@@ -5,7 +5,4 @@ doc/app
 db/*.sqlite3
 attachments
 config/database.yml
-*.swp
-*~
-.DS_Store
-.idea
+/.bundle

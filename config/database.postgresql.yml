@@ -2,8 +2,7 @@ common: &shared
   adapter: postgresql
   encoding: unicode
   pool: 5
-  port: 5433
-  username: lsmith
+  username:
   password:
   min_messages: warning
 
