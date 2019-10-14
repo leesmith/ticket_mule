@@ -9,7 +9,7 @@ gem 'prawn', '0.6.3'
 gem 'rails', '2.3.18'
 gem 'rake', '0.8.7'
 gem 'searchlogic', '2.4.25'
-gem 'will_paginate', '2.3.15'
+gem 'will_paginate', '3.0.5'
 
 group :development, :test do
   gem 'factory_girl'
