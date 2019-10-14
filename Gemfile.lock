@@ -42,7 +42,7 @@ GEM
     rake (0.8.7)
     searchlogic (2.4.25)
       activerecord (>= 2.0.0)
-    will_paginate (2.3.15)
+    will_paginate (3.0.5)
 
 PLATFORMS
   ruby
@@ -58,4 +58,4 @@ DEPENDENCIES
   rails (= 2.3.18)
   rake (= 0.8.7)
   searchlogic (= 2.4.25)
-  will_paginate (= 2.3.15)
+  will_paginate (= 3.0.5)
